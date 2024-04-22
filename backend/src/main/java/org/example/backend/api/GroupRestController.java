@@ -1,13 +1,11 @@
 package org.example.backend.api;
 
 import lombok.RequiredArgsConstructor;
+import org.example.backend.api.modules.StoredGroups;
 import org.example.backend.entity.Group;
 import org.example.backend.service.GroupService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -16,7 +14,7 @@ public class GroupRestController {
     private final GroupService groupService;
 
     @GetMapping("/get_all")
-    public Mono<List<Group>> getAll() {
+    public Mono<StoredGroups> getAll() {
         return groupService.getAllGroups();
     }
 
