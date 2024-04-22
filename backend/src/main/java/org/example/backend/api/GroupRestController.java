@@ -3,13 +3,15 @@ package org.example.backend.api;
 import lombok.RequiredArgsConstructor;
 import org.example.backend.entity.Group;
 import org.example.backend.service.GroupService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
 
 @RequiredArgsConstructor
-@RestController("/group")
+@RestController
+@RequestMapping("/group")
 public class GroupRestController {
     private final GroupService groupService;
 

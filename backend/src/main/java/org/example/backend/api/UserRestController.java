@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequiredArgsConstructor
-@RestController("/user")
+@RestController
+@RequestMapping("/user")
 public class UserRestController {
     private final UserService userService;
 

@@ -6,7 +6,8 @@ import org.example.backend.service.NoteService;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
-@RestController("/note")
+@RestController
+@RequestMapping("/note")
 public class NoteRestController {
     private final NoteService noteService;
 
