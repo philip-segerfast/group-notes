@@ -2,11 +2,10 @@ package org.example.backend.api;
 
 import lombok.RequiredArgsConstructor;
 import org.example.backend.api.modules.groups.user.CreateUserRequest;
-import org.example.backend.entity.User;
+import org.example.backend.api.modules.groups.user.StoredUsersResponse;
 import org.example.backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
 @RestController
@@ -25,7 +24,7 @@ public class UserRestController {
     }
 
     @GetMapping("/getUsers")
-    public List<User> getAllUsers() {
-        return null;
+    public Mono<StoredUsersResponse> getAllUsers() {
+        return Mono.just(userService.getAllUsers());
     }
 }
