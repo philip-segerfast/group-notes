@@ -33,5 +33,3 @@ google-services.json
 
 # Android Profiling
 *.hprof
-
-.idea/modules/app/GroupNotes.app.iml
