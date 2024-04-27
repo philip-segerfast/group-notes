@@ -15,4 +15,8 @@ public class User {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private long id;
         private String name;
+
+        public User(String name) {
+                this.name = name;
+        }
 }
