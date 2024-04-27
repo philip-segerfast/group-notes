@@ -1,12 +1,11 @@
 package org.example.backend.api;
 
 import lombok.RequiredArgsConstructor;
-import org.example.backend.api.modules.GroupResponse;
-import org.example.backend.api.modules.StoredGroups;
+import org.example.backend.api.modules.groups.GroupResponse;
+import org.example.backend.api.modules.groups.StoredGroups;
 import org.example.backend.entity.UserGroup;
 import org.example.backend.service.GroupService;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor

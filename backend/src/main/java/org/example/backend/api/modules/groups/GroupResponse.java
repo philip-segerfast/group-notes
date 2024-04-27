@@ -1,4 +1,4 @@
-package org.example.backend.api.modules;
+package org.example.backend.api.modules.groups;
 
 import lombok.Builder;
 import org.example.backend.entity.UserGroup;
