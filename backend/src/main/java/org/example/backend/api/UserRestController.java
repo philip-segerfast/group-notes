@@ -2,6 +2,7 @@ package org.example.backend.api;
 
 import lombok.RequiredArgsConstructor;
 import org.example.backend.api.modules.groups.user.CreateUserRequest;
+import org.example.backend.api.modules.groups.user.GetUserResponse;
 import org.example.backend.api.modules.groups.user.StoredUsersResponse;
 import org.example.backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -26,5 +27,10 @@ public class UserRestController {
     @GetMapping("/getUsers")
     public Mono<StoredUsersResponse> getAllUsers() {
         return Mono.just(userService.getAllUsers());
+    }
+
+    @GetMapping("/getUser/{id}")
+    public Mono<GetUserResponse> getUser(@PathVariable long id) {
+        return Mono.just(userService.getUserById(id));
     }
 }

@@ -1,8 +1,10 @@
 package org.example.backend.service;
 
 import lombok.RequiredArgsConstructor;
+import org.example.backend.api.modules.groups.GroupResponse;
 import org.example.backend.api.modules.groups.StoredGroups;
 import org.example.backend.api.modules.groups.user.CreateUserRequest;
+import org.example.backend.api.modules.groups.user.GetUserResponse;
 import org.example.backend.api.modules.groups.user.StoredUsersResponse;
 import org.example.backend.entity.User;
 import org.example.backend.repository.UserRepository;
@@ -27,6 +29,12 @@ public class UserService {
         Pageable pageable = PageRequest.of(0, 30); // Fetch first 150 groups
         return StoredUsersResponse.builder()
                 .users(userRepository.findAll(pageable).getContent())
+                .build();
+    }
+
+    public GetUserResponse getUserById(long id) {
+        return GetUserResponse.builder()
+                .user(userRepository.findById(id))
                 .build();
     }
 }
