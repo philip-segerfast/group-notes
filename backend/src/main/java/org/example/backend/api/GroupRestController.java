@@ -9,13 +9,16 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/group")
 public class GroupRestController {
     private final GroupService groupService;
+
+    @GetMapping("/getById/{id}")
+    public Mono<Group> getById(@PathVariable Long id) {
+        return null;
+    }
 
     @GetMapping("/get_all")
     public Flux<StoredGroups> getAll() {
