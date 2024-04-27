@@ -3,7 +3,7 @@ package com.example.groupnotes.ui.compose.screen.groupscreen
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
 import com.example.groupnotes.api.Group
-import com.example.groupnotes.api.groupRepository
+import com.example.groupnotes.apiRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -15,7 +15,7 @@ class GroupScreenModel: ScreenModel {
 
     init {
         screenModelScope.launch {
-            _groups.value = groupRepository.getAllGroups()
+            _groups.value = apiRepository.getAllGroups().userGroups
         }
     }
 

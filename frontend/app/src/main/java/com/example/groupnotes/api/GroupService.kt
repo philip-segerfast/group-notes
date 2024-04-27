@@ -16,7 +16,7 @@ interface GroupService {
 
 class GroupRepository(private val groupService: GroupService) {
     suspend fun getGroupById(id: Long) = groupService.getGroupById(id)
-    suspend fun getAllGroups() = groupService.getAllGroups().groups
+    suspend fun getAllGroups() = groupService.getAllGroups().userGroups
 }
 
 @Serializable
@@ -28,5 +28,5 @@ data class Group(
 
 @Serializable
 data class StoredGroups(
-    val groups: List<Group>
+    val userGroups: List<Group>
 )

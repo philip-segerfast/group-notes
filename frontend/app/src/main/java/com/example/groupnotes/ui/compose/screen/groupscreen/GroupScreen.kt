@@ -11,11 +11,15 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.core.model.rememberScreenModel
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
@@ -30,14 +34,9 @@ class GroupScreen() : Screen {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
+        val model = rememberScreenModel { GroupScreenModel() }
 
-        val groups = listOf(
-            Group(1, "Group 1", 0),
-            Group(2, "Group 2", 0),
-            Group(3, "Group 3", 0),
-            Group(4, "Group 4", 0),
-            Group(5, "Group 5", 0),
-        )
+        val groups by model.groups.collectAsState()
 
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             CustomToolbar(
@@ -56,7 +55,7 @@ class GroupScreen() : Screen {
 @Composable
 fun GroupsScreenPreview() {
     val groups = listOf(
-        Group(0, "asdf", 0),
+        Group(0, "ASsjadfdoiajisd foaisjdfopia jsddf poijasd f", 0),
         Group(0, "asdf", 0),
         Group(0, "asdf", 0),
         Group(0, "asdf", 0),
@@ -117,7 +116,7 @@ fun GroupCard(
 ) {
     GridItem(
         content = {
-            Text(text = group.name)
+            Text(text = group.name, textAlign = TextAlign.Center)
         },
         onClick = onClick,
         contentTopStart = {

@@ -4,8 +4,8 @@ import android.app.Application
 
 private const val TAG = "Application"
 
-private val apiRepository = ApiRepository()
-val apiService = apiRepository.apiService
+private val _apiRepository = ApiRepository()
+val apiRepository = _apiRepository.apiService
 
 class Application : Application() {
 
