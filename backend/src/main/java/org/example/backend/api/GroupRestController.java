@@ -13,6 +13,11 @@ import reactor.core.publisher.Mono;
 public class GroupRestController {
     private final GroupService groupService;
 
+    @GetMapping("/getById/{id}")
+    public Mono<Group> getById(@PathVariable Long id) {
+        return null;
+    }
+
     @GetMapping("/get_all")
     public Mono<StoredGroups> getAll() {
         return groupService.getAllGroups();
