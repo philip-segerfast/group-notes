@@ -4,12 +4,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Entity
-public record Member(
+@Data
+@RequiredArgsConstructor
+public class Member {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        long memberId,
-        long userId,
-        long groupId) {
+        private long memberId;
+        private long userId;
+        private long groupId;
 }

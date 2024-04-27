@@ -2,7 +2,6 @@ package org.example.backend.api;
 
 import lombok.RequiredArgsConstructor;
 import org.example.backend.api.modules.GroupResponse;
-import org.example.backend.api.modules.HelloString;
 import org.example.backend.api.modules.StoredGroups;
 import org.example.backend.entity.UserGroup;
 import org.example.backend.service.GroupService;
@@ -24,11 +23,6 @@ public class GroupRestController {
     @GetMapping("/get_all")
     public Mono<StoredGroups> getAll() {
         return Mono.just(groupService.getAllGroups());
-    }
-
-    @GetMapping("/get_strings")
-    public Flux<HelloString> getStrings() {
-        return groupService.getAllStrings();
     }
 
     @PostMapping("/create")
