@@ -1,10 +1,13 @@
 package org.example.backend.api;
 
 import lombok.RequiredArgsConstructor;
+import org.example.backend.api.modules.GroupResponse;
+import org.example.backend.api.modules.HelloString;
 import org.example.backend.api.modules.StoredGroups;
-import org.example.backend.entity.Group;
+import org.example.backend.entity.UserGroup;
 import org.example.backend.service.GroupService;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
@@ -14,8 +17,8 @@ public class GroupRestController {
     private final GroupService groupService;
 
     @GetMapping("/getById/{id}")
-    public Mono<Group> getById(@PathVariable Long id) {
-        return null;
+    public Mono<GroupResponse> getById(@PathVariable long id) {
+        return Mono.just(groupService.getGroupByUserId(id));
     }
 
     @GetMapping("/get_all")
@@ -23,9 +26,14 @@ public class GroupRestController {
         return groupService.getAllGroups();
     }
 
+    @GetMapping("/get_strings")
+    public Flux<HelloString> getStrings() {
+        return groupService.getAllStrings();
+    }
+
     @PostMapping("/create")
-    public Group createGroup(@RequestBody Group group) {
-        return group;
+    public UserGroup createGroup(@RequestBody UserGroup userGroup) {
+        return userGroup;
     }
 
     @DeleteMapping("/delete/{groupId}")

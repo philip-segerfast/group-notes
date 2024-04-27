@@ -3,7 +3,6 @@ package org.example.backend.api.modules;
 import lombok.Builder;
 import org.example.backend.entity.UserGroup;
 
-import java.util.List;
-
 @Builder
-public record StoredGroups(List<UserGroup> userGroups) {}
+public record GroupResponse(UserGroup userGroup) {
+}
