@@ -22,7 +22,7 @@ public class GroupRestController {
     }
 
     @GetMapping("/get_all")
-    public Flux<StoredGroups> getAll() {
+    public Mono<StoredGroups> getAll() {
         return groupService.getAllGroups();
     }
 
