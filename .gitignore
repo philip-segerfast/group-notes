@@ -110,3 +110,4 @@ fabric.properties
 # Other
 
 backend/src/main/resources/application.properties
+frontend/.idea/modules/app/GroupNotes.app.iml
