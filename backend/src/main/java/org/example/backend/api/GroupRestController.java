@@ -5,7 +5,9 @@ import org.example.backend.api.modules.groups.GroupResponse;
 import org.example.backend.api.modules.groups.StoredGroups;
 import org.example.backend.entity.UserGroup;
 import org.example.backend.service.GroupService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
@@ -33,4 +35,5 @@ public class GroupRestController {
     public Mono<Void> deleteGroup(@PathVariable Long groupId) {
         return Mono.empty();
     }
+
 }

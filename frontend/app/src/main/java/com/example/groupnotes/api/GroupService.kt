@@ -7,23 +7,23 @@ val groupRepository by lazy { GroupRepository(groupService) }
 
 // Has access to database. Perform DB operations.
 interface GroupService {
-    @GET("group/{id}")
-    fun getGroupById(id: Long)
+    @GET("group/getById/{id}")
+    suspend fun getGroupById(id: Long)
 
     @GET("group/get_all")
-    fun getAllGroups()
+    suspend fun getAllGroups(): StoredGroups
 }
 
 class GroupRepository(private val groupService: GroupService) {
-    fun getGroupById(id: Long) = groupService.getGroupById(id)
-    fun getAllGroups() = groupService.getAllGroups()
+    suspend fun getGroupById(id: Long) = groupService.getGroupById(id)
+    suspend fun getAllGroups() = groupService.getAllGroups().groups
 }
 
 @Serializable
 data class Group(
     val id: Long,
     val name: String,
-    val userId: Int
+    val userId: Long
 )
 
 @Serializable
