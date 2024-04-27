@@ -13,9 +13,9 @@ import java.util.List;
 public class UserRestController {
     private final UserService userService;
 
-    @PostMapping("/create/{id}")
-    public String createUser(@PathVariable int id) {
-        return "test";
+    @PostMapping("/create/{name}")
+    public void createUser(@PathVariable String name) {
+        userService.createUser(name);
     }
 
     @PatchMapping("/update/{id}")

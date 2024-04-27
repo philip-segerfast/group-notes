@@ -1,13 +1,12 @@
 package org.example.backend.api;
 
 import lombok.RequiredArgsConstructor;
+import org.example.backend.api.modules.groups.GroupRequest;
 import org.example.backend.api.modules.groups.GroupResponse;
 import org.example.backend.api.modules.groups.StoredGroups;
 import org.example.backend.entity.UserGroup;
 import org.example.backend.service.GroupService;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
@@ -27,13 +26,12 @@ public class GroupRestController {
     }
 
     @PostMapping("/create")
-    public UserGroup createGroup(@RequestBody UserGroup userGroup) {
-        return userGroup;
+    public Mono<GroupResponse> createGroup(@RequestBody GroupRequest groupRequest) {
+        return Mono.just(groupService.createGroup(groupRequest));
     }
 
     @DeleteMapping("/delete/{groupId}")
     public Mono<Void> deleteGroup(@PathVariable Long groupId) {
         return Mono.empty();
     }
-
 }
