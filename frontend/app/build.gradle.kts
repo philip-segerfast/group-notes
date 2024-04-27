@@ -84,5 +84,4 @@ dependencies {
     implementation(libs.retrofit)
 
     implementation(libs.androidx.material.icons.core)
-
 }
