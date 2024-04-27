@@ -17,4 +17,10 @@ public class Note {
         private String title;
         private String content;
         private long groupId;
+
+        public Note(String title, String content, long groupId) {
+                this.title = title;
+                this.content = content;
+                this.groupId = groupId;
+        }
 }

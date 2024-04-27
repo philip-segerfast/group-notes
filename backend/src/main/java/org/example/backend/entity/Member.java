@@ -16,4 +16,10 @@ public class Member {
         private long memberId;
         private long userId;
         private long groupId;
+
+        public Member(long memberId, long userId, long groupId) {
+                this.memberId = memberId;
+                this.userId = userId;
+                this.groupId = groupId;
+        }
 }
