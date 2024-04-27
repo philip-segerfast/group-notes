@@ -83,4 +83,6 @@ dependencies {
     implementation(libs.retrofit2.reactor.adapter)
     implementation(libs.retrofit)
 
+    implementation(libs.androidx.material.icons.core)
+
 }

@@ -7,7 +7,7 @@ import retrofit2.http.GET
 @Serializable
 data class Group(
     val id: Long,
-    val name: String?,
+    val name: String,
     val userId: Int
 )
 
