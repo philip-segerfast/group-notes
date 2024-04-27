@@ -23,7 +23,7 @@ public class GroupRestController {
 
     @GetMapping("/get_all")
     public Mono<StoredGroups> getAll() {
-        return groupService.getAllGroups();
+        return Mono.just(groupService.getAllGroups());
     }
 
     @GetMapping("/get_strings")

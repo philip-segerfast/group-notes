@@ -14,10 +14,10 @@ import reactor.core.publisher.Mono;
 public class GroupService {
     private final GroupRepository groupRepository;
 
-    public Mono<StoredGroups> getAllGroups() {
-        return Mono.just(StoredGroups.builder()
+    public StoredGroups getAllGroups() {
+        return StoredGroups.builder()
                 .userGroups(groupRepository.findAll())
-                .build());
+                .build();
     }
 
     public Flux<HelloString> getAllStrings() {
