@@ -1,10 +1,12 @@
 package org.example.backend.api;
 
 import lombok.RequiredArgsConstructor;
+import org.example.backend.api.modules.HelloString;
 import org.example.backend.api.modules.StoredGroups;
 import org.example.backend.entity.Group;
 import org.example.backend.service.GroupService;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
@@ -19,8 +21,13 @@ public class GroupRestController {
     }
 
     @GetMapping("/get_all")
-    public Mono<StoredGroups> getAll() {
+    public Flux<StoredGroups> getAll() {
         return groupService.getAllGroups();
+    }
+
+    @GetMapping("/get_strings")
+    public Flux<HelloString> getStrings() {
+        return groupService.getAllStrings();
     }
 
     @PostMapping("/create")

@@ -1,4 +1,4 @@
-package com.example.groupnotes
+package com.example.groupnotes.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -31,7 +31,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.groupnotes.api.Group
-import com.example.groupnotes.ui.theme.GroupNotesTheme
+import com.example.groupnotes.apiService
+import com.example.groupnotes.ui.compose.GroupsScreen
+import com.example.groupnotes.ui.compose.theme.GroupNotesTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.reactive.asFlow
@@ -85,65 +87,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GroupsScreenPreview() {
-    val groups = listOf(
-        Group(0, "asdf", 0),
-        Group(0, "asdf", 0),
-        Group(0, "asdf", 0),
-        Group(0, "asdf", 0),
-        Group(0, "asdf", 0),
-        Group(0, "asdf", 0),
-    )
-
-    Box(
-        Modifier
-            .fillMaxSize()
-            .background(Color.White)) {
-        GroupsScreen(groups = groups)
-    }
-}
-
-@Composable
-fun GroupsScreen(groups: List<Group>) {
-    LazyVerticalGrid(
-        modifier = Modifier.padding(8.dp),
-        columns = GridCells.Fixed(2)
-    ) {
-        items(groups) { group ->
-            GroupCard(group = group)
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GroupCardPreview() {
-    val group = Group(0, "Grupp 1", 0)
-    Box(
-        Modifier
-            .size(250.dp)
-            .padding(32.dp)) {
-        GroupCard(group = group)
-    }
-}
-
-@Composable
-fun GroupCard(group: Group) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .height(120.dp)
-            .padding(16.dp)
-            .shadow(8.dp, shape = RoundedCornerShape(8.dp))
-            .background(Color.White)
-        ,
-        contentAlignment = Alignment.Center
-    ) {
-        Text(group.name ?: "?")
     }
 }
