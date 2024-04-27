@@ -85,4 +85,11 @@ dependencies {
 
     implementation(libs.androidx.material.icons.core)
 
+    // Navigator
+    implementation(libs.voyager.navigator)
+    // Screen Model
+    implementation(libs.voyager.screenmodel)
+    // Transitions
+    implementation(libs.voyager.transitions)
+
 }

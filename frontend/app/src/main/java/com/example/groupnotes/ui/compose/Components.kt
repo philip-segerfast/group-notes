@@ -1,18 +1,24 @@
 package com.example.groupnotes.ui.compose
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -44,6 +50,38 @@ fun GridItemPreview() {
                 NumberIcon(3)
             }
         )
+    }
+}
+
+@Composable
+fun CustomToolbar(
+    title: String,
+    onBackClick: (() -> Unit)? = null
+) {
+    Row(
+        Modifier
+            .height(64.dp)
+            .fillMaxWidth()
+            .background(Color.Blue.copy(0.1f))
+            .padding(16.dp)
+        ,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+
+        if(onBackClick != null) {
+            IconButton(
+                onClick = onBackClick
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Default.ArrowBack,
+                    contentDescription = null
+                )
+            }
+        }
+
+        ProvideTextStyle(value = MaterialTheme.typography.titleMedium) {
+            Text(text = title)
+        }
     }
 }
 
@@ -102,7 +140,9 @@ fun GridItem(
                 .fillMaxSize()
                 .padding(iconSize / 3)
                 .shadow(elevation = 8.dp, cornerShape, clip = false)
-                .background(Color.White, cornerShape),
+                .background(Color.White, cornerShape)
+                .clickable(onClick = onClick)
+            ,
             contentAlignment = Alignment.Center,
             content = { content() }
         )
