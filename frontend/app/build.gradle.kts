@@ -92,4 +92,10 @@ dependencies {
     // Transitions
     implementation(libs.voyager.transitions)
 
+    implementation(libs.fingerprint.android)
+
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    implementation(libs.automerge)
+
 }

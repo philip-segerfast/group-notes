@@ -1,6 +1,7 @@
 package com.example.groupnotes
 
 import com.example.groupnotes.api.GroupService
+import com.example.groupnotes.api.UserService
 import com.jakewharton.retrofit2.adapter.reactor.ReactorCallAdapterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType
@@ -15,6 +16,8 @@ class ApiRepository {
         .addCallAdapterFactory(ReactorCallAdapterFactory.create())
         .build()
 
-    val apiService: GroupService = retrofit.create(GroupService::class.java)
+    val groupService: GroupService = retrofit.create(GroupService::class.java)
+    val userService: UserService = retrofit.create(UserService::class.java)
+//    val noteService: Note = retrofit.create(NoteService::class.java)
 
 }

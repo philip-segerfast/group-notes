@@ -2,21 +2,21 @@ package com.example.groupnotes.api
 
 import kotlinx.serialization.Serializable
 import retrofit2.http.GET
-
-val groupRepository by lazy { GroupRepository(groupService) }
+import retrofit2.http.POST
+import retrofit2.http.Path
 
 // Has access to database. Perform DB operations.
 interface GroupService {
     @GET("group/getById/{id}")
-    suspend fun getGroupById(id: Long)
+    suspend fun getGroupById(@Path("id") id: Long): Group
 
     @GET("group/get_all")
     suspend fun getAllGroups(): StoredGroups
-}
 
-class GroupRepository(private val groupService: GroupService) {
-    suspend fun getGroupById(id: Long) = groupService.getGroupById(id)
-    suspend fun getAllGroups() = groupService.getAllGroups().userGroups
+    @POST("group/create")
+    suspend fun createGroup(name: String, userId: Long)
+
+    suspend fun addMembers(userId: Int, groupId: Long, members: List<String>)
 }
 
 @Serializable
