@@ -1,4 +1,4 @@
-package com.example.groupnotes.ui.compose.screen.groupscreen
+package com.example.groupnotes.ui.compose.screen.groups
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -30,8 +30,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import cafe.adriel.voyager.core.model.rememberScreenModel
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.hilt.getViewModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.example.groupnotes.api.Group
@@ -40,14 +40,17 @@ import com.example.groupnotes.ui.compose.CustomToolbar
 import com.example.groupnotes.ui.compose.GridItem
 import com.example.groupnotes.ui.compose.NumberIcon
 import com.example.groupnotes.ui.compose.RoundedDropdownButton
+import com.example.groupnotes.ui.compose.screen.notes.NoteScreen
 
 class GroupScreen : Screen {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
-        val model = rememberScreenModel { GroupScreenModel() }
+
+        val model: GroupsScreenViewModel = getViewModel()
         val groups by model.groups.collectAsState()
         val users by model.users.collectAsState()
+
         var showCreateGroupDialog by remember { mutableStateOf(false) }
 
         MaterialTheme {

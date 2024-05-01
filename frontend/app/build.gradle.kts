@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    kotlin("plugin.serialization") version "1.9.23"
+    alias(libs.plugins.compose.compiler)
+    kotlin("plugin.serialization") version "2.0.0-RC2"
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -45,9 +48,6 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.12"
-    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -57,9 +57,11 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -91,6 +93,8 @@ dependencies {
     implementation(libs.voyager.screenmodel)
     // Transitions
     implementation(libs.voyager.transitions)
+    // Hilt integration
+    implementation(libs.voyager.hilt)
 
     implementation(libs.fingerprint.android)
 
@@ -98,4 +102,11 @@ dependencies {
 
     implementation(libs.automerge)
 
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+    implementation("com.github.skydoves:retrofit-adapters-result:1.0.9")
+}
+
+kapt {
+    correctErrorTypes = true
 }

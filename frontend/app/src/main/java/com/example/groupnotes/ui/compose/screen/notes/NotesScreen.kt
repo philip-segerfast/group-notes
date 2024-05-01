@@ -1,4 +1,4 @@
-package com.example.groupnotes.ui.compose.screen.groupscreen
+package com.example.groupnotes.ui.compose.screen.notes
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
@@ -9,26 +9,33 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.tooling.preview.Preview
+import cafe.adriel.voyager.core.annotation.ExperimentalVoyagerApi
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.hilt.getViewModel
 import cafe.adriel.voyager.navigator.LocalNavigator
-import com.example.groupnotes.api.NoteService
+import com.example.groupnotes.api.note.NoteRepository
 import com.example.groupnotes.ui.compose.CustomToolbar
 import com.example.groupnotes.ui.compose.GridItem
 import com.example.groupnotes.ui.compose.NumberIcon
 import com.example.groupnotes.ui.compose.RoundedDropdownButton
-import kotlinx.coroutines.Dispatchers
+import com.example.groupnotes.ui.compose.screen.groups.CustomGrid
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 import kotlin.random.Random
 
 data class NoteScreen(private val groupId: Long) : Screen {
+
+    @OptIn(ExperimentalVoyagerApi::class)
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.current
-        val model
+        val viewModel: NotesScreenViewModel = getViewModel<NotesScreenViewModel, NotesScreenViewModel.Factory> { factory ->
+            factory.create(groupId)
+        }
 
         val notes = listOf(
             Note(1, "Note 1"),
@@ -59,7 +66,7 @@ data class NoteScreen(private val groupId: Long) : Screen {
 
 class NoteScreenModel(
     private val noteId: Long,
-    private val noteService: NoteService
+    private val noteRepository: NoteRepository
 ) : ScreenModel {
 
     private val _note = MutableStateFlow<Note?>(null)
@@ -72,7 +79,7 @@ class NoteScreenModel(
     }
 
     private suspend fun fetchNote() {
-        _note.value = noteService.getNoteById(noteId)
+        _note.value = noteRepository.getNoteById(noteId)
     }
 
     override fun onDispose() {

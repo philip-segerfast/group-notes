@@ -1,6 +1,6 @@
 package com.example.groupnotes.automerge
 
-import com.example.groupnotes.ui.compose.screen.groupscreen.Note
+import com.example.groupnotes.ui.compose.screen.notes.Note
 import org.automerge.Document
 import org.automerge.ObjectId
 import org.automerge.ObjectType
