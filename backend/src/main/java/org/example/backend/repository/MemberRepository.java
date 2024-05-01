@@ -1,7 +1,10 @@
 package org.example.backend.repository;
 
 import org.example.backend.entity.Member;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
-public interface MemberRepository extends JpaRepository<Member, Long> {
+import java.util.List;
+
+public interface MemberRepository extends ReactiveCrudRepository<Member, Long> {
+    void addAll(List<Member> members);
 }
