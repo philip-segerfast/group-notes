@@ -40,7 +40,7 @@ import com.example.groupnotes.ui.compose.CustomToolbar
 import com.example.groupnotes.ui.compose.GridItem
 import com.example.groupnotes.ui.compose.NumberIcon
 import com.example.groupnotes.ui.compose.RoundedDropdownButton
-import com.example.groupnotes.ui.compose.screen.notes.NoteScreen
+import com.example.groupnotes.ui.compose.screen.notes.NotesScreen
 
 class GroupScreen : Screen {
     @Composable
@@ -66,7 +66,7 @@ class GroupScreen : Screen {
                         )
                         GroupsScreen(
                             groups = groups,
-                            onGroupClick = { navigator.push(NoteScreen(it.id)) }
+                            onGroupClick = { navigator.push(NotesScreen(it.id)) }
                         )
                     }
                 },

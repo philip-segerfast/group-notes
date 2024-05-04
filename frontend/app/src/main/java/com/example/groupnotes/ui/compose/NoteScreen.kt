@@ -3,12 +3,8 @@ package com.example.groupnotes.ui.compose
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.groupnotes.model.Note
 import kotlin.random.Random
-
-data class Note(
-    val noteId: Int,
-    val title: String
-)
 
 @Preview(showBackground = true)
 @Composable

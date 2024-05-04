@@ -3,6 +3,7 @@ package com.example.groupnotes.ui.compose.screen.notes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -16,6 +17,7 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.hilt.getViewModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import com.example.groupnotes.api.note.NoteRepository
+import com.example.groupnotes.model.Note
 import com.example.groupnotes.ui.compose.CustomToolbar
 import com.example.groupnotes.ui.compose.GridItem
 import com.example.groupnotes.ui.compose.NumberIcon
@@ -24,10 +26,9 @@ import com.example.groupnotes.ui.compose.screen.groups.CustomGrid
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 import kotlin.random.Random
 
-data class NoteScreen(private val groupId: Long) : Screen {
+data class NotesScreen(private val groupId: Long) : Screen {
 
     @OptIn(ExperimentalVoyagerApi::class)
     @Composable
@@ -37,13 +38,7 @@ data class NoteScreen(private val groupId: Long) : Screen {
             factory.create(groupId)
         }
 
-        val notes = listOf(
-            Note(1, "Note 1"),
-            Note(2, "Note 2"),
-            Note(3, "Note 3"),
-            Note(4, "Note 4"),
-            Note(5, "Note 5"),
-        )
+        val notes by viewModel.notes.collectAsState()
 
         var clickedNote by remember { mutableStateOf<Note?>(null) }
 
@@ -55,7 +50,7 @@ data class NoteScreen(private val groupId: Long) : Screen {
 
             Text("Clicked note: $clickedNote")
 
-            NoteScreen(
+            NoteListScreen(
                 notes,
                 onNoteClick = { clickedNote = it }
             )
@@ -64,7 +59,7 @@ data class NoteScreen(private val groupId: Long) : Screen {
     }
 }
 
-class NoteScreenModel(
+class NotesScreenModel(
     private val noteId: Long,
     private val noteRepository: NoteRepository
 ) : ScreenModel {
@@ -89,14 +84,9 @@ class NoteScreenModel(
     }
 }
 
-data class Note(
-    val noteId: Int,
-    val title: String
-)
-
 @Preview(showBackground = true)
 @Composable
-fun NoteScreenPreview() {
+fun NotesScreenPreview() {
     val notes = listOf(
         Note(1, "Note 1"),
         Note(2, "Note 2"),
@@ -105,7 +95,7 @@ fun NoteScreenPreview() {
         Note(5, "Note 5"),
     )
 
-    NoteScreen(notes, onNoteClick = {})
+    NoteListScreen(notes, onNoteClick = {})
 }
 
 @Composable
@@ -125,7 +115,7 @@ fun NoteCard(note: Note, onClick: () -> Unit) {
 }
 
 @Composable
-fun NoteScreen(
+fun NoteListScreen(
     notes: List<Note>,
     onNoteClick: (Note) -> Unit
 ) {

@@ -1,10 +1,9 @@
 package com.example.groupnotes.ui.compose.screen.notes
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import cafe.adriel.voyager.hilt.ScreenModelFactory
 import com.example.groupnotes.api.note.NoteRepository
+import com.example.groupnotes.model.Note
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -12,7 +11,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @HiltViewModel(assistedFactory = NotesScreenViewModel.Factory::class)
 class NotesScreenViewModel @AssistedInject constructor(
@@ -29,9 +27,7 @@ class NotesScreenViewModel @AssistedInject constructor(
 
     private fun loadNotes() {
         viewModelScope.launch {
-//            noteRepository.getNotes().collect { notes ->
-//                _notes.value = notes
-//            }
+            _notes.value = noteRepository.getNotes(groupId)
         }
     }
 

@@ -7,9 +7,13 @@ class UserRepository(
     private val auth: Auth
 ) {
 
-    suspend fun getUserById(userId: Long) = userService.getUserById(userId)
+    suspend fun createUser(name: String) = userService.createUser(name)
+
+    suspend fun updateUser(): Result<Unit> = TODO()
 
     suspend fun getAllUsers() = userService.getAllUsers()
+
+    suspend fun getUserById(userId: Long) = userService.getUserById(userId)
 
     suspend fun getClientUser() = userService.getUserById(auth.userId.value!!)
 

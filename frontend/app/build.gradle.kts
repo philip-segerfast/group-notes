@@ -58,6 +58,7 @@ android {
 dependencies {
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    testImplementation("org.testng:testng:6.9.6")
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     implementation(libs.androidx.core.ktx)

@@ -17,11 +17,7 @@ data class StoredGroups(
 @Serializable
 data class StoredUserResponse(
     val users: List<User>
-) {
-    companion object {
-        val Empty = StoredUserResponse(emptyList())
-    }
-}
+)
 
 @Serializable
 data class User(
