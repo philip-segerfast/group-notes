@@ -1,8 +1,6 @@
 package com.example.groupnotes.ui.compose
 
-import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -26,14 +24,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text2.BasicTextField2
-import androidx.compose.foundation.text2.TextFieldDecorator
 import androidx.compose.foundation.text2.input.TextFieldState
 import androidx.compose.foundation.text2.input.rememberTextFieldState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -45,9 +41,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -196,105 +190,6 @@ fun GridItem(
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun CreateGroupPreview() {
-    val items = listOf(
-        User(0, "Benny"),
-        User(0, "Link"),
-        User(0, "Anders"),
-        User(0, "Johnny"),
-        User(0, "Kent"),
-        User(0, "Alex"),
-        User(0, "Juan"),
-        User(0, "Robin"),
-        User(0, "Chris"),
-    )
-
-    CreateGroup(
-        items,
-        onCreateGroup = { _, _ -> },
-        onDismiss = {}
-    )
-}
-
-@OptIn(ExperimentalFoundationApi::class)
-@Composable
-fun CreateGroup(
-    users: List<User>,
-    onCreateGroup: (name: String, members: List<User>) -> Unit,
-    onDismiss: () -> Unit
-) {
-    val selectedUsers = remember { mutableStateListOf<User>() }
-    val unselectedUsers by remember(users, selectedUsers) {
-        derivedStateOf { users.filter { it !in selectedUsers } }
-    }
-    val groupName = rememberTextFieldState()
-
-    val shape = RoundedCornerShape(8.dp)
-
-    Column(
-        Modifier
-            .padding(32.dp)
-            .background(MaterialTheme.colorScheme.background)
-            .padding(8.dp)
-            .clip(shape)
-    ) {
-        Row {
-            Text("Group name: ")
-            CustomTextField2(state = groupName)
-        }
-        Spacer(Modifier.height(8.dp))
-        SearchArea(
-            items = unselectedUsers,
-            searchMatcher = { search, user -> user.name.contains(search, ignoreCase = true) },
-            itemTextProvider = { it.name },
-            onItemClick = { selectedUsers.add(it) }
-        )
-
-        Spacer(Modifier.height(16.dp))
-
-        AnimatedVisibility(visible = selectedUsers.isNotEmpty()) {
-            Column(
-                Modifier
-                    .heightIn(max = 250.dp)
-                    .fillMaxWidth()
-                    .border(1.dp, Color.Blue, RoundedCornerShape(8.dp))
-                    .padding(8.dp)
-                    .verticalScroll(rememberScrollState())
-            ) {
-                if(selectedUsers.isNotEmpty()) {
-                    Text("Selected users:")
-                }
-                selectedUsers.forEach { user ->
-                    Column {
-                        Text(
-                            user.name,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable { selectedUsers -= user }
-                                .padding(8.dp)
-                        )
-                        HorizontalDivider()
-                    }
-                }
-            }
-        }
-
-        Row(horizontalArrangement = Arrangement.End) {
-            TextButton(onClick = onDismiss) {
-                Text("Cancel")
-            }
-            Spacer(Modifier.width(8.dp))
-            TextButton(onClick = { onCreateGroup(groupName.text.toString(), selectedUsers) }) {
-                Text("Create")
-            }
-        }
-    }
-}
-
-
-
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun CustomTextField2(state: TextFieldState) {
@@ -378,6 +273,15 @@ fun <T: Any> SearchArea(
         )
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 

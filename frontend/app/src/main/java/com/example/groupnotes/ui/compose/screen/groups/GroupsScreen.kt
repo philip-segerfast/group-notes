@@ -35,7 +35,6 @@ import cafe.adriel.voyager.hilt.getViewModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.example.groupnotes.api.Group
-import com.example.groupnotes.ui.compose.CreateGroup
 import com.example.groupnotes.ui.compose.CustomToolbar
 import com.example.groupnotes.ui.compose.GridItem
 import com.example.groupnotes.ui.compose.NumberIcon
