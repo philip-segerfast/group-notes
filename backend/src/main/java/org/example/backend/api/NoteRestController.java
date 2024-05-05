@@ -21,8 +21,9 @@ public class NoteRestController {
     }
 
     @PatchMapping("/update")
-    public String updateNote(@RequestBody CreateNoteRequest createNoteRequest) {
-        return null;
+    public Mono<CreateNoteReponse> updateNote(@RequestBody CreateNoteRequest createNoteRequest) {
+        return noteService.updateNote(createNoteRequest.note())
+                .map(CreateNoteReponse::new);
     }
 
     @DeleteMapping("/delete/{noteId}")

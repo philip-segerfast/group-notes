@@ -18,4 +18,8 @@ public class NoteService {
     public Mono<Void> deleteById(Long noteId) {
         return noteRepository.deleteById(noteId);
     }
+
+    public Mono<Note> updateNote(Note note) {
+        return noteRepository.save(note);
+    }
 }
