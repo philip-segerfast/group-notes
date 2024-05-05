@@ -1,4 +1,4 @@
-package org.example.backend.service.converter;
+package org.example.backend.api.converter;
 
 import org.example.backend.api.modules.groups.GroupRequest;
 import org.example.backend.entity.UserGroup;

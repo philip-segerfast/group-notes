@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.backend.api.modules.groups.user.CreateUserRequest;
 import org.example.backend.api.modules.groups.user.GetUserResponse;
 import org.example.backend.api.modules.groups.user.StoredUsersResponse;
+import org.example.backend.entity.User;
 import org.example.backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
@@ -14,9 +15,9 @@ import reactor.core.publisher.Mono;
 public class UserRestController {
     private final UserService userService;
 
-    @PostMapping("/create/{name}")
-    public void createUser(@PathVariable CreateUserRequest name) {
-        userService.createUser(name);
+    @PostMapping("/create/{userName}")
+    public Mono<User> createUser(@PathVariable CreateUserRequest userName) {
+        return userService.createUser(userName.name());
     }
 
     @PatchMapping("/update/{id}")
@@ -26,11 +27,13 @@ public class UserRestController {
 
     @GetMapping("/getUsers")
     public Mono<StoredUsersResponse> getAllUsers() {
-        return Mono.just(userService.getAllUsers());
+        return userService.getAllUsers()
+                .map(StoredUsersResponse::new);
     }
 
     @GetMapping("/getUser/{id}")
     public Mono<GetUserResponse> getUser(@PathVariable long id) {
-        return Mono.just(userService.getUserById(id));
+        return userService.getUserById(id)
+                .map(GetUserResponse::new);
     }
 }

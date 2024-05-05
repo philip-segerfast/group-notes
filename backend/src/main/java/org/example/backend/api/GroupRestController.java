@@ -4,11 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.example.backend.api.modules.groups.GroupRequest;
 import org.example.backend.api.modules.groups.GroupResponse;
 import org.example.backend.api.modules.groups.StoredGroups;
-import org.example.backend.entity.UserGroup;
 import org.example.backend.service.GroupService;
-import org.example.backend.service.converter.GroupConverter;
+import org.example.backend.api.converter.GroupConverter;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
