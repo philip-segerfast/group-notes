@@ -1,4 +1,4 @@
-package org.example.backend.api.modules.groups.member;
+package org.example.backend.api.modules.member;
 
 import org.example.backend.entity.Member;
 

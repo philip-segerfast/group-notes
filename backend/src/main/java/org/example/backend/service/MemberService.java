@@ -1,7 +1,7 @@
 package org.example.backend.service;
 
 import lombok.RequiredArgsConstructor;
-import org.example.backend.api.modules.groups.member.AddMemberRequest;
+import org.example.backend.api.modules.member.AddMemberRequest;
 import org.example.backend.repository.MemberRepository;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;

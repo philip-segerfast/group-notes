@@ -1,9 +1,9 @@
 package org.example.backend.api;
 
 import lombok.RequiredArgsConstructor;
-import org.example.backend.api.modules.groups.user.CreateUserRequest;
-import org.example.backend.api.modules.groups.user.GetUserResponse;
-import org.example.backend.api.modules.groups.user.StoredUsersResponse;
+import org.example.backend.api.modules.user.CreateUserRequest;
+import org.example.backend.api.modules.user.GetUserResponse;
+import org.example.backend.api.modules.user.StoredUsersResponse;
 import org.example.backend.entity.User;
 import org.example.backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
