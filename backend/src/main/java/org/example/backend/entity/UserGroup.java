@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @Data
 @RequiredArgsConstructor
+@Builder
 public class UserGroup {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
