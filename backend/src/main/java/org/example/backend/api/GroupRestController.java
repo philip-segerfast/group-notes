@@ -27,7 +27,6 @@ public class GroupRestController {
     @GetMapping("/get_all")
     public Mono<StoredGroups> getAll() {
         return groupService.getAllGroups()
-                .collectList()
                 .map(StoredGroups::new);
     }
 
@@ -39,6 +38,6 @@ public class GroupRestController {
 
     @DeleteMapping("/delete/{groupId}")
     public Mono<Void> deleteGroup(@PathVariable Long groupId) {
-        return Mono.empty();
+        return groupService.deleteGroup(groupId);
     }
 }

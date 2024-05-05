@@ -7,13 +7,17 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class GroupService {
     private final GroupRepository groupRepository;
 
-    public Flux<UserGroup> getAllGroups() {
-        return groupRepository.findAll().take(100);
+    public Mono<List<UserGroup>> getAllGroups() {
+        return groupRepository.findAll()
+                .take(100)
+                .collectList();
     }
 
     public Mono<UserGroup> getGroupByUserId(long id) {
@@ -22,5 +26,9 @@ public class GroupService {
 
     public Mono<UserGroup> createGroup (UserGroup userGroup) {
         return groupRepository.save(userGroup);
+    }
+
+    public Mono<Void> deleteGroup(Long groupId) {
+        return groupRepository.deleteById(groupId);
     }
 }
