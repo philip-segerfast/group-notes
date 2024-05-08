@@ -114,4 +114,4 @@ fabric.properties
 
 backend/src/main/resources/application.properties
 frontend/.kotlin/sessions/
-#local.properties
+local.properties
