@@ -1,6 +1,6 @@
-package com.example.groupnotes.api.note
+package org.robphi.groupnotes.api.note
 
-import com.example.groupnotes.model.Note
+import org.robphi.groupnotes.model.Note
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.PATCH

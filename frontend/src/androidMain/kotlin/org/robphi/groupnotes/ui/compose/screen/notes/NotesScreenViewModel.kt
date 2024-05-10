@@ -1,9 +1,9 @@
-package com.example.groupnotes.ui.compose.screen.notes
+package org.robphi.groupnotes.ui.compose.screen.notes
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.groupnotes.api.note.NoteRepository
-import com.example.groupnotes.model.Note
+import org.robphi.groupnotes.api.note.NoteRepository
+import org.robphi.groupnotes.model.Note
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject

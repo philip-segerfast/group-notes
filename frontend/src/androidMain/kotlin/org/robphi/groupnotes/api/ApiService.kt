@@ -1,4 +1,4 @@
-package com.example.groupnotes.api
+package org.robphi.groupnotes.api
 
 import kotlinx.serialization.Serializable
 

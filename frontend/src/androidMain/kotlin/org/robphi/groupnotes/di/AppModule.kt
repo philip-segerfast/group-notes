@@ -1,16 +1,16 @@
-package com.example.groupnotes.di
+package org.robphi.groupnotes.di
 
 import android.content.Context
-import com.example.groupnotes.api.group.FakeGroupService
-import com.example.groupnotes.api.note.NoteService
-import com.example.groupnotes.api.group.GroupRepository
-import com.example.groupnotes.api.group.GroupService
-import com.example.groupnotes.api.note.NoteRepository
-import com.example.groupnotes.api.user.FakeUserService
-import com.example.groupnotes.api.user.UserRepository
-import com.example.groupnotes.api.user.UserService
-import com.example.groupnotes.auth.Auth
-import com.example.groupnotes.auth.FakeAuth
+import org.robphi.groupnotes.api.group.FakeGroupService
+import org.robphi.groupnotes.api.note.NoteService
+import org.robphi.groupnotes.api.group.GroupRepository
+import org.robphi.groupnotes.api.group.GroupService
+import org.robphi.groupnotes.api.note.NoteRepository
+import org.robphi.groupnotes.api.user.FakeUserService
+import org.robphi.groupnotes.api.user.UserRepository
+import org.robphi.groupnotes.api.user.UserService
+import org.robphi.groupnotes.auth.Auth
+import org.robphi.groupnotes.auth.FakeAuth
 import com.skydoves.retrofit.adapters.result.ResultCallAdapterFactory
 import dagger.Module
 import dagger.Provides

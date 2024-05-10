@@ -1,4 +1,4 @@
-package com.example.groupnotes.auth
+package org.robphi.groupnotes.auth
 
 import android.content.Context
 import com.fingerprintjs.android.fingerprint.Fingerprinter

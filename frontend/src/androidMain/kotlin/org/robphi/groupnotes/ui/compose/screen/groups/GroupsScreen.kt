@@ -1,4 +1,4 @@
-package com.example.groupnotes.ui.compose.screen.groups
+package org.robphi.groupnotes.ui.compose.screen.groups
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -34,12 +34,12 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.hilt.getViewModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import com.example.groupnotes.api.Group
-import com.example.groupnotes.ui.compose.CustomToolbar
-import com.example.groupnotes.ui.compose.GridItem
-import com.example.groupnotes.ui.compose.NumberIcon
-import com.example.groupnotes.ui.compose.RoundedDropdownButton
-import com.example.groupnotes.ui.compose.screen.notes.NotesScreen
+import org.robphi.groupnotes.api.Group
+import org.robphi.groupnotes.ui.compose.CustomToolbar
+import org.robphi.groupnotes.ui.compose.GridItem
+import org.robphi.groupnotes.ui.compose.NumberIcon
+import org.robphi.groupnotes.ui.compose.RoundedDropdownButton
+import org.robphi.groupnotes.ui.compose.screen.notes.NotesScreen
 
 class GroupScreen : Screen {
     @Composable

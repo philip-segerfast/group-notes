@@ -1,4 +1,4 @@
-package com.example.groupnotes.ui.compose.theme
+package org.robphi.groupnotes.ui.compose.theme
 
 import android.app.Activity
 import android.os.Build

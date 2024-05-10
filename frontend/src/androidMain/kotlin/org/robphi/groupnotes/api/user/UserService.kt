@@ -1,9 +1,7 @@
-package com.example.groupnotes.api.user
+package org.robphi.groupnotes.api.user
 
-import com.example.groupnotes.api.GetUserResponse
-import com.example.groupnotes.api.StoredUserResponse
-import com.example.groupnotes.api.User
-import retrofit2.http.Body
+import org.robphi.groupnotes.api.GetUserResponse
+import org.robphi.groupnotes.api.StoredUserResponse
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.POST

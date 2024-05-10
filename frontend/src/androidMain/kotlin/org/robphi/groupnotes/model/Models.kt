@@ -1,4 +1,4 @@
-package com.example.groupnotes.model
+package org.robphi.groupnotes.model
 
 data class Note(
     val noteId: Int,

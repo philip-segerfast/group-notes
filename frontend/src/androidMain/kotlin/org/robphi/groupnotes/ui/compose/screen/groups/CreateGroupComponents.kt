@@ -1,4 +1,4 @@
-package com.example.groupnotes.ui.compose.screen.groups
+package org.robphi.groupnotes.ui.compose.screen.groups
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -32,9 +32,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.groupnotes.api.User
-import com.example.groupnotes.ui.compose.CustomTextField2
-import com.example.groupnotes.ui.compose.SearchArea
+import org.robphi.groupnotes.api.User
+import org.robphi.groupnotes.ui.compose.CustomTextField2
+import org.robphi.groupnotes.ui.compose.SearchArea
 
 @Preview(showBackground = true)
 @Composable

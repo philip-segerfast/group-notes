@@ -1,9 +1,9 @@
-package com.example.groupnotes.ui.compose
+package org.robphi.groupnotes.ui.compose
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.groupnotes.model.Note
+import org.robphi.groupnotes.model.Note
 import kotlin.random.Random
 
 @Preview(showBackground = true)

@@ -1,7 +1,7 @@
-package com.example.groupnotes.api.group
+package org.robphi.groupnotes.api.group
 
-import com.example.groupnotes.api.Group
-import com.example.groupnotes.api.StoredGroups
+import org.robphi.groupnotes.api.Group
+import org.robphi.groupnotes.api.StoredGroups
 import retrofit2.Response
 import retrofit2.http.DELETE
 import retrofit2.http.GET

@@ -1,6 +1,7 @@
-package com.example.groupnotes.api.user
+package org.robphi.groupnotes.api.user
 
-import com.example.groupnotes.auth.Auth
+import org.robphi.groupnotes.api.user.UserService
+import org.robphi.groupnotes.auth.Auth
 
 class UserRepository(
     private val userService: UserService,

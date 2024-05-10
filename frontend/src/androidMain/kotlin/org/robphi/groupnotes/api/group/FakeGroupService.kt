@@ -1,15 +1,14 @@
-package com.example.groupnotes.api.group
+package org.robphi.groupnotes.api.group
 
-import com.example.groupnotes.api.Group
-import com.example.groupnotes.api.StoredGroups
-import com.example.groupnotes.api.User
-import com.example.groupnotes.api.user.UserRepository
+import org.robphi.groupnotes.api.Group
+import org.robphi.groupnotes.api.StoredGroups
+import org.robphi.groupnotes.api.User
+import org.robphi.groupnotes.api.user.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import retrofit2.Response

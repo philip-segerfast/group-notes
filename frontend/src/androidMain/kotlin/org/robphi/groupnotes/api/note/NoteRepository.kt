@@ -1,7 +1,8 @@
-package com.example.groupnotes.api.note
+package org.robphi.groupnotes.api.note
 
-import com.example.groupnotes.auth.Auth
-import com.example.groupnotes.model.Note
+import org.robphi.groupnotes.api.note.NoteService
+import org.robphi.groupnotes.auth.Auth
+import org.robphi.groupnotes.model.Note
 
 class NoteRepository(
     private val groupService: NoteService,

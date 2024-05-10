@@ -1,8 +1,8 @@
-package com.example.groupnotes.api.user
+package org.robphi.groupnotes.api.user
 
-import com.example.groupnotes.api.GetUserResponse
-import com.example.groupnotes.api.StoredUserResponse
-import com.example.groupnotes.api.User
+import org.robphi.groupnotes.api.GetUserResponse
+import org.robphi.groupnotes.api.StoredUserResponse
+import org.robphi.groupnotes.api.User
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 

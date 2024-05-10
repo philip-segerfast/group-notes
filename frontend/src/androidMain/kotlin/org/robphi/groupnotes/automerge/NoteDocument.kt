@@ -1,6 +1,6 @@
-package com.example.groupnotes.automerge
+package org.robphi.groupnotes.automerge
 
-import com.example.groupnotes.model.Note
+import org.robphi.groupnotes.model.Note
 import org.automerge.Document
 import org.automerge.ObjectId
 import org.automerge.ObjectType

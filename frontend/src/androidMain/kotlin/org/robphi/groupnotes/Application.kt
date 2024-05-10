@@ -1,4 +1,4 @@
-package com.example.groupnotes
+package org.robphi.groupnotes
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

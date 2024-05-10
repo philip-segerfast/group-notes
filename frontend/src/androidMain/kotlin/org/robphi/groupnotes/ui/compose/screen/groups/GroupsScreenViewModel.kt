@@ -1,11 +1,11 @@
-package com.example.groupnotes.ui.compose.screen.groups
+package org.robphi.groupnotes.ui.compose.screen.groups
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.groupnotes.api.Group
-import com.example.groupnotes.api.User
-import com.example.groupnotes.api.group.GroupRepository
-import com.example.groupnotes.api.user.UserRepository
+import org.robphi.groupnotes.api.Group
+import org.robphi.groupnotes.api.User
+import org.robphi.groupnotes.api.group.GroupRepository
+import org.robphi.groupnotes.api.user.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

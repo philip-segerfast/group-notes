@@ -1,4 +1,4 @@
-package com.example.groupnotes.ui.compose.screen.notes
+package org.robphi.groupnotes.ui.compose.screen.notes
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
@@ -16,13 +16,13 @@ import cafe.adriel.voyager.core.model.screenModelScope
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.hilt.getViewModel
 import cafe.adriel.voyager.navigator.LocalNavigator
-import com.example.groupnotes.api.note.NoteRepository
-import com.example.groupnotes.model.Note
-import com.example.groupnotes.ui.compose.CustomToolbar
-import com.example.groupnotes.ui.compose.GridItem
-import com.example.groupnotes.ui.compose.NumberIcon
-import com.example.groupnotes.ui.compose.RoundedDropdownButton
-import com.example.groupnotes.ui.compose.screen.groups.CustomGrid
+import org.robphi.groupnotes.api.note.NoteRepository
+import org.robphi.groupnotes.model.Note
+import org.robphi.groupnotes.ui.compose.CustomToolbar
+import org.robphi.groupnotes.ui.compose.GridItem
+import org.robphi.groupnotes.ui.compose.NumberIcon
+import org.robphi.groupnotes.ui.compose.RoundedDropdownButton
+import org.robphi.groupnotes.ui.compose.screen.groups.CustomGrid
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
