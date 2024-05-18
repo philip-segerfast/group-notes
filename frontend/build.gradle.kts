@@ -3,8 +3,6 @@ import org.gradle.api.internal.artifacts.dependencies.DefaultExternalModuleDepen
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
@@ -36,11 +34,20 @@ kotlin {
         val desktopMain by getting
 
         androidMain.dependencies {
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
+
+            implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7")
+
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
             implementation(projects.shared)
         }
         commonMain.dependencies {
+            implementation(project.dependencies.platform(libs.koin.bom))
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
@@ -126,8 +133,6 @@ android {
         implementation(libs.voyager.screenmodel)
         // Transitions
         implementation(libs.voyager.transitions)
-        // Hilt integration
-        implementation(libs.voyager.hilt)
 
         implementation(libs.fingerprint.android)
 
@@ -135,9 +140,6 @@ android {
 
         implementation(libs.automerge)
 
-        implementation("com.google.dagger:hilt-android:2.51.1")
-        configurations["kapt"].dependencies.add(DefaultExternalModuleDependency("com.google.dagger", "hilt-android-compiler", "2.51.1"))
-//        kapt("com.google.dagger:hilt-android-compiler:2.51.1")
         implementation("com.github.skydoves:retrofit-adapters-result:1.0.9")
     }
 }
@@ -152,9 +154,4 @@ compose.desktop {
             packageVersion = "1.0.0"
         }
     }
-}
-
-// Allow references to generated code
-kapt {
-    correctErrorTypes = true
 }

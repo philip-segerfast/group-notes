@@ -2,24 +2,20 @@ package org.robphi.groupnotes.ui.compose.screen.groups
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import org.robphi.groupnotes.api.Group
-import org.robphi.groupnotes.api.User
-import org.robphi.groupnotes.api.group.GroupRepository
-import org.robphi.groupnotes.api.user.UserRepository
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
+import org.robphi.groupnotes.api.Group
+import org.robphi.groupnotes.api.User
+import org.robphi.groupnotes.api.group.GroupRepository
+import org.robphi.groupnotes.api.user.UserRepository
 
-@HiltViewModel
-class GroupsScreenViewModel @Inject constructor(
+class GroupsScreenViewModel(
     private val groupRepository: GroupRepository,
     private val userRepository: UserRepository
 ): ViewModel() {
-
     private val _groups = MutableStateFlow<List<Group>>(emptyList())
     val groups = _groups.asStateFlow()
     

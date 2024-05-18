@@ -1,5 +1,6 @@
 package org.robphi.groupnotes.api.note
 
+import org.koin.core.component.KoinComponent
 import org.robphi.groupnotes.api.note.NoteService
 import org.robphi.groupnotes.auth.Auth
 import org.robphi.groupnotes.model.Note
@@ -7,7 +8,7 @@ import org.robphi.groupnotes.model.Note
 class NoteRepository(
     private val groupService: NoteService,
     private val auth: Auth
-) {
+): KoinComponent {
 
     suspend fun createNote(noteId: Long, title: String) = groupService.createNote(noteId, title)
 

@@ -19,9 +19,9 @@ interface NoteService {
     suspend fun deleteNote(noteId: Long): String
 
     @GET("/note/{id}")
-    suspend fun getNoteById(@Path("id") id: Long): Note = TODO()
+    suspend fun getNoteById(@Path("id") id: Long): Note
 
     @GET("note/{groupId}")
-    suspend fun getNotes(@Path("groupId") groupId: Long): List<Note> = TODO()
+    suspend fun getNotes(@Path("groupId") groupId: Long): List<Note>
 
 }

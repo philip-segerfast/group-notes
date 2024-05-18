@@ -31,9 +31,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.hilt.getViewModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import org.koin.compose.koinInject
 import org.robphi.groupnotes.api.Group
 import org.robphi.groupnotes.ui.compose.CustomToolbar
 import org.robphi.groupnotes.ui.compose.GridItem
@@ -42,11 +42,12 @@ import org.robphi.groupnotes.ui.compose.RoundedDropdownButton
 import org.robphi.groupnotes.ui.compose.screen.notes.NotesScreen
 
 class GroupScreen : Screen {
+
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
+        val model: GroupsScreenViewModel = koinInject()
 
-        val model: GroupsScreenViewModel = getViewModel()
         val groups by model.groups.collectAsState()
         val users by model.users.collectAsState()
 

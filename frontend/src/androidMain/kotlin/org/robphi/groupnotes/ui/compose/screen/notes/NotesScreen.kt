@@ -10,12 +10,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.tooling.preview.Preview
-import cafe.adriel.voyager.core.annotation.ExperimentalVoyagerApi
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
 import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.hilt.getViewModel
 import cafe.adriel.voyager.navigator.LocalNavigator
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import org.koin.compose.koinInject
+import org.koin.core.parameter.parametersOf
 import org.robphi.groupnotes.api.note.NoteRepository
 import org.robphi.groupnotes.model.Note
 import org.robphi.groupnotes.ui.compose.CustomToolbar
@@ -23,20 +26,15 @@ import org.robphi.groupnotes.ui.compose.GridItem
 import org.robphi.groupnotes.ui.compose.NumberIcon
 import org.robphi.groupnotes.ui.compose.RoundedDropdownButton
 import org.robphi.groupnotes.ui.compose.screen.groups.CustomGrid
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 data class NotesScreen(private val groupId: Long) : Screen {
 
-    @OptIn(ExperimentalVoyagerApi::class)
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.current
-        val viewModel: NotesScreenViewModel = getViewModel<NotesScreenViewModel, NotesScreenViewModel.Factory> { factory ->
-            factory.create(groupId)
-        }
+
+        val viewModel: NotesScreenViewModel = koinInject<NotesScreenViewModel> { parametersOf(groupId) }
 
         val notes by viewModel.notes.collectAsState()
 
