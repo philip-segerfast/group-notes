@@ -1,5 +1,3 @@
-import org.gradle.api.internal.artifacts.dependencies.DefaultExternalModuleDependency
-
 plugins {
 //    id("kotlin-kapt")
 //    id("com.google.dagger.hilt.android")
