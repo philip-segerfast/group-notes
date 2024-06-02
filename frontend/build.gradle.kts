@@ -1,11 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-import org.gradle.api.internal.artifacts.dependencies.DefaultExternalModuleDependency
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.compose.compiler)
 }
 
 kotlin {
@@ -41,7 +41,10 @@ kotlin {
 
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
-            implementation(projects.shared)
+//            implementation(projects.shared)
+        }
+        desktopMain.dependencies {
+            implementation(compose.desktop.currentOs)
         }
         commonMain.dependencies {
             implementation(project.dependencies.platform(libs.koin.bom))
@@ -54,10 +57,8 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+
             implementation(projects.shared)
-        }
-        desktopMain.dependencies {
-            implementation(compose.desktop.currentOs)
         }
     }
 }

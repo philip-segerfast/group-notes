@@ -1,14 +1,15 @@
 plugins {
-    application
+    alias(libs.plugins.kotlinJvm)
     id("org.springframework.boot") version "3.2.4"
     id("io.spring.dependency-management") version "1.1.4"
+    application
 }
 
 group = "org.robphi.groupnotes"
 version = "1.0.0"
 
 application {
-    mainClass.set("org.example.backend.BackendApplication")
+    mainClass.set("org.example.spring.BackendApplication")
 }
 
 configurations {
@@ -19,6 +20,8 @@ configurations {
 
 dependencies {
     implementation(projects.shared)
+    implementation(projects.serverShared)
+
     implementation(libs.logback)
     testImplementation(libs.kotlin.test.junit)
 

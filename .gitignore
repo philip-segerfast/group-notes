@@ -116,5 +116,5 @@ fabric.properties
 
 # Other
 
-backend/src/main/resources/application.properties
 frontend/.kotlin/sessions/
+server-spring/src/main/resources/application.properties

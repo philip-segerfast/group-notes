@@ -20,13 +20,19 @@ kotlin {
 
     jvm()
 
+    applyDefaultHierarchyTemplate()
+
+    // https://kotlinlang.org/docs/multiplatform-hierarchy.html#additional-configuration
+    // Apply the default hierarchy again. It'll create, for example, the iosMain source set:
+//    applyDefaultHierarchyTemplate()
+
     sourceSets {
         commonMain.dependencies {
             // put your Multiplatform dependencies here
         }
 
         androidMain.dependencies {
-
+            // put Android dependencies here
         }
     }
 }
