@@ -20,7 +20,7 @@ configurations {
 
 dependencies {
     implementation(projects.shared)
-    implementation(projects.serverShared)
+    implementation(projects.server.shared)
 
     implementation(libs.logback)
     testImplementation(libs.kotlin.test.junit)
@@ -30,9 +30,11 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.0.4")
-    compileOnly("org.projectlombok:lombok")
+
     runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
-    annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
+
+    compileOnly("org.projectlombok:lombok:1.18.30")
+    annotationProcessor("org.projectlombok:lombok:1.18.30")
 }

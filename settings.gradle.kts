@@ -32,7 +32,6 @@ dependencyResolutionManagement {
 
 include(":frontend")
 include(":shared")
-
-include(":server-spring")
-include(":server-ktor")
-include(":server-shared")
+include(":server:shared")
+include(":server:ktor")
+include(":server:spring")

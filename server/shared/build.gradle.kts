@@ -7,7 +7,7 @@ kotlin {
 
     sourceSets {
         jvmMain.dependencies {
-            // Common server dependencies
+            // Common shared dependencies
         }
 
         commonMain.dependencies {
