@@ -14,7 +14,7 @@ public class MemberRestController {
 
     @PatchMapping("/create")
     public Mono<Void> addMembers(@RequestBody AddMemberRequest memberRequest) {
-        return memberService.addAllMembers(memberRequest);
+        return memberService.addAllMembers(memberRequest.members());
     }
 
     @DeleteMapping("/delete/{memberId}")

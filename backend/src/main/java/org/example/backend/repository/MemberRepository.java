@@ -2,10 +2,8 @@ package org.example.backend.repository;
 
 import org.example.backend.entity.Member;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
-import reactor.core.publisher.Mono;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
+@Repository
 public interface MemberRepository extends ReactiveCrudRepository<Member, Long> {
-    Mono<Void> addAll(List<Member> members);
 }

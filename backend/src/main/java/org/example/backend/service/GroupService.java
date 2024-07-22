@@ -12,6 +12,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class GroupService {
+    //lol
     private final GroupRepository groupRepository;
 
     public Mono<List<UserGroup>> getAllGroups() {
