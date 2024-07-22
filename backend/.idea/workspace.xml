@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7de90c08-40f1-46ce-8765-ef5af6431409" name="Changes" comment="ff">
+      <change afterPath="$PROJECT_DIR$/../.idea/appInsightsSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/migrations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/other.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/studiobot.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/Application.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/api/note/FakeNoteService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/di/KoinAppModule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/model/Models.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/ui/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/ui/compose/screen/notes/NotesScreenViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/commonMain/composeResources/drawable/compose-multiplatform.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/commonMain/kotlin/App.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/desktopMain/kotlin/main.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/iosMain/kotlin/MainViewController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosApp/Configuration/Config.xcconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosApp/iosApp.xcodeproj/project.pbxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosApp/iosApp/Assets.xcassets/AccentColor.colorset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosApp/iosApp/Assets.xcassets/AppIcon.appiconset/app-icon-1024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosApp/iosApp/Assets.xcassets/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosApp/iosApp/ContentView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosApp/iosApp/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosApp/iosApp/Preview Content/Preview Assets.xcassets/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iosApp/iosApp/iOSApp.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/ktor/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/ktor/src/main/kotlin/robphi/server/ktor/Application.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/shared/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/shared/src/jvmMain/kotlin/ServerTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/spring/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/spring/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../settings.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/src/androidMain/kotlin/Platform.android.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/src/commonMain/kotlin/Constants.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/src/commonMain/kotlin/Greeting.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/src/commonMain/kotlin/Platform.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/src/commonMain/kotlin/model/TestUser.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/src/jvmMain/kotlin/Platform.jvm.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/src/nativeMain/kotlin/Platform.native.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules/GroupNotes.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules/app/GroupNotes.app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules/backend.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules/backend.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules/backend.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/backend.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/BackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/GroupRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/GroupRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/MemberRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/MemberRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/NoteRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/NoteRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/UserRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/modules/groups/GroupRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/modules/groups/GroupRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/modules/groups/GroupResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/modules/groups/GroupResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/modules/groups/StoredGroups.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/modules/groups/StoredGroups.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/modules/member/AddMemberRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/modules/member/AddMemberRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/modules/note/CreateNoteReponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/modules/note/CreateNoteReponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/modules/note/CreateNoteRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/modules/note/CreateNoteRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/modules/user/CreateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/modules/user/CreateUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/modules/user/GetUserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/modules/user/GetUserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/api/modules/user/StoredUsersResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/api/modules/user/StoredUsersResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/entity/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/entity/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/entity/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/entity/UserGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/entity/UserGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/repository/GroupRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/repository/GroupRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/repository/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/repository/NoteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/repository/NoteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/service/GroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/service/GroupService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/service/NoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/service/NoteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/main/java/org/example/backend/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/backend/BackendApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/spring/src/test/kotlin/BackendApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/androidTest/java/com/example/groupnotes/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/Application.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/api/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/api/ApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/api/group/FakeGroupService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/api/group/FakeGroupService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/api/group/GroupRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/api/group/GroupRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/api/group/GroupService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/api/group/GroupService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/api/note/NoteRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/api/note/NoteRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/api/note/NoteService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/api/note/NoteService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/api/user/FakeUserService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/api/user/FakeUserService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/api/user/UserRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/api/user/UserRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/api/user/UserService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/api/user/UserService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/auth/Auth.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/auth/Auth.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/auth/FakeAuth.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/auth/FakeAuth.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/automerge/NoteDocument.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/automerge/NoteDocument.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/di/AppModule.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/model/Models.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/ui/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/ui/compose/Components.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/ui/compose/Components.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/ui/compose/GroupScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/ui/compose/GroupScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/ui/compose/NoteScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/ui/compose/NoteScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/ui/compose/screen/groups/CreateGroupComponents.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/ui/compose/screen/groups/CreateGroupComponents.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/ui/compose/screen/groups/GroupsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/ui/compose/screen/groups/GroupsScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/ui/compose/screen/groups/GroupsScreenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/ui/compose/screen/groups/GroupsScreenViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/ui/compose/screen/notes/NotesScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/ui/compose/screen/notes/NotesScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/ui/compose/screen/notes/NotesScreenViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/ui/compose/theme/Color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/ui/compose/theme/Color.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/ui/compose/theme/Theme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/ui/compose/theme/Theme.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/java/com/example/groupnotes/ui/compose/theme/Type.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/kotlin/org/robphi/groupnotes/ui/compose/theme/Type.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/androidMain/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/app/src/test/java/com/example/groupnotes/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/settings.gradle.kts" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="backend" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Robbz92&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/philip-segerfast/group-notes.git&quot;,
+    &quot;accountId&quot;: &quot;f6df042d-a53c-4c30-a4d2-c3732bd03df8&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2f14jvbmkp83K2odgRGiWHEC0nm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.Build backend.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.backend [bootRun].executor": "Run",
+    "Gradle.backend [bootTestRun].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.BackendApplication.executor": "Run",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/robin/Projects/Spring projects/group-notes/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.backend.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.backend [bootRun]">
+    <configuration name="backend [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="backend [bootTestRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootTestRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="backend.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.backend.BackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.backend [bootRun]" />
+        <item itemvalue="Gradle.backend [bootTestRun]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7de90c08-40f1-46ce-8765-ef5af6431409" name="Changes" comment="" />
+      <created>1712955388802</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712955388802</updated>
+      <workItem from="1712955390234" duration="1432000" />
+      <workItem from="1712956993503" duration="455000" />
+      <workItem from="1713546619691" duration="262000" />
+      <workItem from="1713546919622" duration="2115000" />
+      <workItem from="1713556584630" duration="2777000" />
+      <workItem from="1713600437914" duration="8061000" />
+      <workItem from="1713886471825" duration="9036000" />
+      <workItem from="1714213878497" duration="4292000" />
+      <workItem from="1714222877173" duration="10799000" />
+      <workItem from="1714572224160" duration="1565000" />
+      <workItem from="1714828900362" duration="18000" />
+      <workItem from="1714828923358" duration="275000" />
+      <workItem from="1714894910727" duration="5217000" />
+      <workItem from="1717004598160" duration="1550000" />
+      <workItem from="1717007702239" duration="41000" />
+      <workItem from="1717007805995" duration="123000" />
+      <workItem from="1717008045809" duration="939000" />
+      <workItem from="1717009428971" duration="25000" />
+      <workItem from="1717009875858" duration="428000" />
+      <workItem from="1717010486992" duration="166000" />
+      <workItem from="1717082104980" duration="1011000" />
+      <workItem from="1717083765436" duration="15000" />
+      <workItem from="1717084265719" duration="988000" />
+      <workItem from="1717085537138" duration="1794000" />
+      <workItem from="1717088136867" duration="37000" />
+      <workItem from="1717089363631" duration="12000" />
+      <workItem from="1717188360532" duration="1000" />
+      <workItem from="1717188366036" duration="14000" />
+      <workItem from="1717188441096" duration="14000" />
+      <workItem from="1717188460229" duration="43000" />
+      <workItem from="1721629753689" duration="2272000" />
+    </task>
+    <task id="LOCAL−00001" summary="ff">
+      <option name="closed" value="true" />
+      <created>1714211328549</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1714211328549</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
+    <MESSAGE value="ff" />
+    <option name="LAST_COMMIT_MESSAGE" value="ff" />
+  </component>
+</project>
