@@ -1,3 +1,6 @@
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+import org.springframework.boot.gradle.tasks.run.BootRun
+
 plugins {
     alias(libs.plugins.kotlinJvm)
     id("org.springframework.boot") version "3.2.4"
@@ -24,6 +27,18 @@ configurations {
 
 repositories {
     mavenCentral()
+}
+
+tasks.getByName<BootJar>("bootJar") {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.getByName<Tar>("distTar") {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.getByName<Zip>("distZip") {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 dependencies {

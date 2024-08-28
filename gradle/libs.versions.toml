@@ -11,10 +11,15 @@ androidx-material = "1.11.0"
 androidx-test-junit = "1.1.5"
 compose = "1.6.7"
 compose-plugin = "1.6.10"
+jdbcDriver = "2.0.2"
 junit = "4.13.2"
-koin-bom = "3.5.6"
+kermit = "2.0.4"
+koin-bom = "3.6.0-wasm-alpha2"
+ktorSerializationKotlinxJson = "2.3.11"
+ktorServerContentNegotiation = "2.3.11"
+ktorServerSseJvm = "3.0.0-beta-1"
 logback = "1.5.6"
-agp = "8.4.1"
+agp = "8.5.0"
 automerge = "0.0.7"
 converterGson = "2.11.0"
 converterKotlinxSerialization = "2.11.0"
@@ -33,14 +38,21 @@ retrofit = "2.11.0"
 retrofit2ReactorAdapter = "2.1.0"
 voyager = "1.1.0-alpha04"
 lifecycleViewmodelCompose = "2.7.0"
-ktor = "2.3.11"
+#ktor = "2.3.8"
+ktor = "3.0.0-beta-1"
 
 [libraries]
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
 koin-core = { module = "io.insert-koin:koin-core" }
 koin-compose = { module = "io.insert-koin:koin-compose" }
 koin-android = { module = "io.insert-koin:koin-android" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose" }
+
+sqldelight-async-extensions = { module = "app.cash.sqldelight:async-extensions", version.ref = "jdbcDriver" }
+sqldelight-coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "jdbcDriver" }
+sqldeight-jdbc-driver = { module = "app.cash.sqldelight:jdbc-driver", version.ref = "jdbcDriver" }
+sqldelight-r2dbc-driver = { module = "app.cash.sqldelight:r2dbc-driver", version.ref = "jdbcDriver" }
 
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
@@ -55,7 +67,6 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
-
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }
@@ -74,17 +85,23 @@ fingerprint-android = { module = "com.github.fingerprintjs:fingerprint-android",
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 kotlinx-coroutines-reactor = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor", version.ref = "coroutines" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+kotlinx-coroutines-reactive = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactive", version.ref = "coroutines" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit2-reactor-adapter = { module = "com.jakewharton.retrofit:retrofit2-reactor-adapter", version.ref = "retrofit2ReactorAdapter" }
-voyager-hilt = { module = "cafe.adriel.voyager:voyager-hilt", version.ref = "voyager" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
 voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
 androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+
+ktor-koin = { module = "io.insert-koin:koin-ktor", version.ref = "koin-bom" }
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktorServerContentNegotiation" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
 ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor" }
+ktor-server-sse-jvm = { module = "io.ktor:ktor-server-sse-jvm", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorSerializationKotlinxJson" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -93,6 +110,7 @@ kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }

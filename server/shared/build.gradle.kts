@@ -12,6 +12,7 @@ kotlin {
 
         commonMain.dependencies {
             implementation(project(":shared"))
+            implementation(libs.kermit)
         }
     }
 }
