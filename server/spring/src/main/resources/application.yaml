@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: Backend
+  r2dbc:
+    url: r2dbc:mariadb://localhost:3306/GroupeNote
+    username: root
+    password: robban92
