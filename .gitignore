@@ -117,4 +117,4 @@ fabric.properties
 # Other
 
 frontend/.kotlin/sessions/
-server-spring/src/main/resources/application.properties
+server-spring/src/main/resources/application.yaml
