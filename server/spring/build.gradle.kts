@@ -47,19 +47,16 @@ dependencies {
 
     testImplementation(libs.kotlin.test.junit)
 
-    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-jdbc")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-
+    implementation("org.springframework.boot:spring-boot-starter-webflux:3.3.0")
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc:3.3.0")
+    implementation("io.netty:netty-all:4.1.110.Final")
+    implementation("org.mariadb:r2dbc-mariadb:1.2.0")
     implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.0.4")
-
-    testImplementation("io.projectreactor:reactor-test")
-
-    runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
-    runtimeOnly("org.mariadb:r2dbc-mariadb:1.2.0")
-
+    implementation("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
-    compileOnly("org.projectlombok:lombok")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+    compileOnly("javax.servlet:javax.servlet-api:4.0.1")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.projectreactor:reactor-test")
 }
