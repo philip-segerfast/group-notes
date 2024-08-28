@@ -1,0 +1,33 @@
+CREATE TABLE IF NOT EXISTS "user" (
+  id INTEGER GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(100) NOT NULL,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE IF NOT EXISTS "group" (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name TEXT NOT NULL,
+  userId INT NOT NULL,
+  CONSTRAINT owner_fk
+    FOREIGN KEY(userId)
+        REFERENCES "user"(id)
+);
+
+CREATE TABLE IF NOT EXISTS "member" (
+  userId INTEGER NOT NULL,
+  groupId INTEGER NOT NULL,
+  PRIMARY KEY (userId, groupId),
+  CONSTRAINT member_group_FK FOREIGN KEY (groupId) REFERENCES "group" (id),
+  CONSTRAINT member_user_FK FOREIGN KEY (userId) REFERENCES "user" (id)
+);
+
+CREATE TABLE IF NOT EXISTS "note" (
+  id SERIAL PRIMARY KEY NOT NULL,
+  title varchar(100) NOT NULL,
+  content text NOT NULL,
+  timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  groupId INTEGER NOT NULL,
+  creator INTEGER NOT NULL,
+  CONSTRAINT note_group_FK FOREIGN KEY (groupId) REFERENCES "group" (id),
+  CONSTRAINT note_creator_FK FOREIGN KEY (creator) REFERENCES "user" (id)
+);

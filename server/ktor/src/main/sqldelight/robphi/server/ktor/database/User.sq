@@ -1,0 +1,20 @@
+
+
+-- INSERT INTO "user" (name)
+-- VALUES ('Epix');
+
+selectAll:
+SELECT * FROM "user";
+
+insert:
+INSERT INTO "user" (name) VALUES (?) RETURNING *;
+
+update:
+UPDATE "user"
+SET name = :name
+WHERE id = :id
+RETURNING *;
+
+selectById:
+SELECT * FROM "user"
+WHERE id = ?;

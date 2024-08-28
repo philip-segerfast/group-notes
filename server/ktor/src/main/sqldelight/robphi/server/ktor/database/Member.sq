@@ -1,0 +1,2 @@
+insert:
+INSERT INTO "member" (userId, groupId) VALUES (?, ?);

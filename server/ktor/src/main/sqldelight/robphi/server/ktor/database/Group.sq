@@ -1,0 +1,26 @@
+findOwnedGroupsForUser:
+SELECT * FROM "group" WHERE userId = ?;
+
+insert:
+INSERT INTO "group" (name, userId) VALUES (?, ?) RETURNING *;
+
+selectAll:
+SELECT * FROM "group";
+
+selectById:
+SELECT * FROM group WHERE id = ?;
+
+insertGroup:
+INSERT INTO group (name, userId) VALUES (?, ?) RETURNING *;
+
+deleteGroup:
+DELETE FROM group WHERE id = ? RETURNING count(*);
+
+selectAllGroupsForUser:
+SELECT * FROM group WHERE userId = ?;
+
+
+-- MEMBERS?
+
+--      [ON DELETE delete_action]
+--      [ON UPDATE update_action]
