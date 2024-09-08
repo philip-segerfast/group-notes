@@ -4,5 +4,9 @@ import lombok.Builder;
 import org.example.backend.entity.Note;
 
 @Builder
-public record CreateNoteRequest(Note note) {
+public record CreateNoteRequest(
+        String title,
+        String content,
+        String timestamp,
+        long groupId) {
 }
