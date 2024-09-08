@@ -6,6 +6,7 @@ import com.fingerprintjs.android.fingerprint.FingerprinterFactory
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import org.koin.core.KoinApplication.Companion.init
 import java.util.Objects
 import kotlin.random.Random
 

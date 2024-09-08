@@ -62,11 +62,13 @@ class GroupScreen : Screen {
                     ) {
                         CustomToolbar(
                             title = "Groups",
-                            onBackClick = null
+                            onBackClick = null,
+                            onReload = { model.fetchGroupsAsync() }
                         )
                         GroupsScreen(
                             groups = groups,
-                            onGroupClick = { navigator.push(NotesScreen(it.id)) }
+                            onGroupClick = { navigator.push(NotesScreen(it.id)) },
+                            onGroupLongClick = { model.deleteGroup(it.id) }
                         )
                     }
                 },
@@ -81,8 +83,8 @@ class GroupScreen : Screen {
                 Dialog(onDismissRequest = { showCreateGroupDialog = false }) {
                     CreateGroup(
                         users = users,
-                        onCreateGroup = { groupName, members -> model.createGroup(groupName, members) },
-                        onDismiss = {showCreateGroupDialog = false}
+                        onDismiss = {showCreateGroupDialog = false},
+                        onCreateGroup = { groupName, members -> model.createGroup(groupName, members.map { it.id }) }
                     )
                 }
             }
@@ -107,7 +109,8 @@ fun GroupsScreenPreview() {
             .background(Color.White)) {
         GroupsScreen(
             groups = groups,
-            onGroupClick = {}
+            onGroupClick = {},
+            onGroupLongClick = {}
         )
     }
 }
@@ -134,30 +137,39 @@ fun <T: Any> CustomGrid(
 @Composable
 fun GroupsScreen(
     groups: List<Group>,
-    onGroupClick: (Group) -> Unit
+    onGroupClick: (Group) -> Unit,
+    onGroupLongClick: (Group) -> Unit,
 ) {
     CustomGrid(
         items = groups,
-        itemContent = { GroupCard(it, onClick = { onGroupClick(it) }) },
+        itemContent = {
+            GroupCard(
+                group = it,
+                onClick = { onGroupClick(it) },
+                onLongClick = { onGroupLongClick(it) }
+            )
+        },
     )
 }
 
 @Preview
 @Composable
 fun GroupCardPreview() {
-    GroupCard(group = Group(0, "Group", 0), onClick = {})
+    GroupCard(group = Group(0, "Group", 0), onClick = {}, onLongClick = {})
 }
 
 @Composable
 fun GroupCard(
     group: Group,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    onLongClick: () -> Unit
 ) {
     GridItem(
         content = {
             Text(text = group.name, textAlign = TextAlign.Center)
         },
         onClick = onClick,
+        onLongClick = onLongClick,
         contentTopStart = {
             NumberIcon(number = 2)
         },

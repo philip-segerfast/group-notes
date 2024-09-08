@@ -3,18 +3,18 @@ package org.robphi.groupnotes.api.note
 import kotlinx.collections.immutable.persistentMapOf
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
-import org.robphi.groupnotes.model.Note
+import org.robphi.groupnotes.api.Note
 
 class FakeNoteService : NoteService {
     private var notes = MutableStateFlow(persistentMapOf<Long, Note>())
 
-    override suspend fun createNote(noteId: Long, title: String): Note = Note(noteId, title).also { note ->
-        notes.update { it.put(noteId, note) }
+    override suspend fun createNote(noteId: Long, title: String): Note {
+        return Note.createDummy("adsf")
     }
 
     override suspend fun updateNote(note: Note): String {
-        notes.update { it.put(note.noteId, note) }
-        return "Note ${note.noteId} updated."
+        notes.update { it.put(note.id, note) }
+        return "Note ${note.id} updated."
     }
 
     override suspend fun deleteNote(noteId: Long): String {

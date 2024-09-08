@@ -1,9 +1,9 @@
 package org.robphi.groupnotes.automerge
 
-import org.robphi.groupnotes.model.Note
 import org.automerge.Document
 import org.automerge.ObjectId
 import org.automerge.ObjectType
+import org.robphi.groupnotes.api.Note
 import kotlin.jvm.optionals.getOrNull
 
 class NoteDocument(

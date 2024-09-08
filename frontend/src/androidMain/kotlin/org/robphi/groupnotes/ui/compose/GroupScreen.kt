@@ -78,6 +78,9 @@ fun GroupCard(group: Group) {
         onClick = {
                   
         },
+        onLongClick = {
+
+        },
         contentTopStart = {
             NumberIcon(number = 2)
         },

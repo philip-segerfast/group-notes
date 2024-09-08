@@ -4,10 +4,12 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -24,6 +26,7 @@ import androidx.compose.foundation.text2.input.rememberTextFieldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -56,6 +59,7 @@ fun GridItemPreview() {
                 Text("Hello")
             },
             onClick = {},
+            onLongClick = {},
             contentTopEnd = {
                 RoundedDropdownButton()
             },
@@ -69,7 +73,8 @@ fun GridItemPreview() {
 @Composable
 fun CustomToolbar(
     title: String,
-    onBackClick: (() -> Unit)? = null
+    onBackClick: (() -> Unit)? = null,
+    onReload: (() -> Unit)? = null
 ) {
     Row(
         Modifier
@@ -94,6 +99,19 @@ fun CustomToolbar(
 
         ProvideTextStyle(value = MaterialTheme.typography.titleMedium) {
             Text(text = title)
+        }
+
+        Spacer(Modifier.weight(1f))
+
+        if(onReload != null) {
+            IconButton(
+                onClick = onReload
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Refresh,
+                    contentDescription = null
+                )
+            }
         }
     }
 }
@@ -131,10 +149,12 @@ fun NumberIcon(number: Int) {
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun GridItem(
     content: @Composable BoxScope.() -> Unit,
     onClick: () -> Unit,
+    onLongClick: () -> Unit,
     contentTopEnd: @Composable () -> Unit,
     contentTopStart: @Composable () -> Unit
 ) {
@@ -154,7 +174,10 @@ fun GridItem(
                 .padding(iconSize / 3)
                 .shadow(elevation = 8.dp, cornerShape, clip = false)
                 .background(Color.White, cornerShape)
-                .clickable(onClick = onClick)
+                .combinedClickable(
+                    onClick = onClick,
+                    onLongClick = onLongClick
+                )
             ,
             contentAlignment = Alignment.Center,
             content = { content() }

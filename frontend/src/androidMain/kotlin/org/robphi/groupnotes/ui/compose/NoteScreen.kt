@@ -3,18 +3,18 @@ package org.robphi.groupnotes.ui.compose
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import org.robphi.groupnotes.model.Note
+import org.robphi.groupnotes.api.Note
 import kotlin.random.Random
 
 @Preview(showBackground = true)
 @Composable
 fun NoteScreenPreview() {
     val notes = listOf(
-        Note(1, "Note 1"),
-        Note(2, "Note 2"),
-        Note(3, "Note 3"),
-        Note(4, "Note 4"),
-        Note(5, "Note 5"),
+        Note.createDummy("Note 1"),
+        Note.createDummy("Note 2"),
+        Note.createDummy("Note 3"),
+        Note.createDummy("Note 4"),
+        Note.createDummy("Note 5"),
     )
 
     NoteScreen(notes)
@@ -27,6 +27,7 @@ fun NoteCard(note: Note) {
             Text(text = note.title)
         },
         onClick = {},
+        onLongClick = {},
         contentTopStart = {
             NumberIcon(number = Random.nextInt(1, 7))
         },

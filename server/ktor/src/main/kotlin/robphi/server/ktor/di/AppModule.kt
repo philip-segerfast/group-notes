@@ -7,6 +7,7 @@ import robphi.server.ktor.database.MemberQueries
 import robphi.server.ktor.database.NoteQueries
 import robphi.server.ktor.database.UserQueries
 import robphi.server.ktor.repo.GroupRepository
+import robphi.server.ktor.repo.GroupRepositoryImpl
 import robphi.server.ktor.repo.NoteRepository
 import robphi.server.ktor.repo.NoteRepositoryImpl
 import robphi.server.ktor.repo.UserRepository

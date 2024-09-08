@@ -6,10 +6,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
-import org.koin.java.KoinJavaComponent.inject
-import org.koin.java.KoinJavaComponent.injectOrNull
+import org.robphi.groupnotes.api.Note
 import org.robphi.groupnotes.api.note.NoteRepository
-import org.robphi.groupnotes.model.Note
 
 class NotesScreenViewModel(
     private val groupId: Long,

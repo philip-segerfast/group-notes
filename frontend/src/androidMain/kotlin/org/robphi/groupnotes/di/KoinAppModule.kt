@@ -27,7 +27,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.create
 
-private const val FAKE = true
+private const val FAKE = false
 
 val appModule = module {
 
@@ -35,7 +35,7 @@ val appModule = module {
 
     single<Retrofit> {
         Retrofit.Builder()
-            .baseUrl("http://127.0.0.1:8080/")
+            .baseUrl("http://192.168.254.245:8080/")
             .addConverterFactory(Json.asConverterFactory("application/json; charset=utf-8".toMediaType()))
             .addCallAdapterFactory(ResultCallAdapterFactory.create())
             .build()

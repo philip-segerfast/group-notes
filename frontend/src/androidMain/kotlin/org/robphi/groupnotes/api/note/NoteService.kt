@@ -1,6 +1,7 @@
 package org.robphi.groupnotes.api.note
 
-import org.robphi.groupnotes.model.Note
+import org.robphi.groupnotes.api.Note
+import org.robphi.groupnotes.api.NoteList
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.PATCH
@@ -21,7 +22,7 @@ interface NoteService {
     @GET("/note/{id}")
     suspend fun getNoteById(@Path("id") id: Long): Note
 
-    @GET("note/{groupId}")
-    suspend fun getNotes(@Path("groupId") groupId: Long): List<Note>
+    @GET("note/get_notes/{groupId}")
+    suspend fun getNotes(@Path("groupId") groupId: Long): NoteList
 
 }

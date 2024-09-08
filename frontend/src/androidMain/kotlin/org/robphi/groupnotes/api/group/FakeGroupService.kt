@@ -11,6 +11,11 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.robphi.groupnotes.api.AddMembersRequest
+import org.robphi.groupnotes.api.CreateGroupRequest
+import org.robphi.groupnotes.api.CreateGroupResponse
+import org.robphi.groupnotes.api.UserId
+import org.robphi.groupnotes.api.WrappedGroup
 import retrofit2.Response
 import kotlin.random.Random
 
@@ -47,17 +52,21 @@ class FakeGroupService(
         _groupMembers.value = groupMembers
     }
 
+    override suspend fun getGroupsForUser(user: UserId): Result<List<WrappedGroup>> {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun getGroupById(id: Long): Result<Group> = runCatching {
         _groups.value.first { it.id == id }
     }
 
     override suspend fun getAllGroups(): Result<StoredGroups> = Result.success(StoredGroups(_groups.first { it.isNotEmpty() }))
 
-    override suspend fun createGroup(name: String, userId: Long): Response<String> {
+    override suspend fun createGroup(body: CreateGroupRequest): Response<CreateGroupResponse> {
         val current = _groups.value
-        val newGroup = Group(currentGroupId++, name, userId)
-        _groups.value = current + newGroup
-        return Response.success(newGroup.id.toString())
+        val group = Group(Random.nextLong(), body.name, body.userId)
+        _groups.value = current + group
+        return Response.success(CreateGroupResponse(group))
     }
 
     override suspend fun deleteGroup(groupId: Long) {
@@ -65,7 +74,8 @@ class FakeGroupService(
         _groups.update { it - groupToDelete }
     }
 
-    override suspend fun addMembers(userId: Long, groupId: Long, newMembers: List<Long>) {
+    override suspend fun addMembers(request: AddMembersRequest) {
+        val (newMembers, groupId) = request
         val groupsWithMembers = _groupMembers.value
         val currentMembers = groupsWithMembers[groupId] ?: error("Invalid groupId: $groupId")
         val combinedMembers = (currentMembers + newMembers).distinct() // Use Set to remove duplicates

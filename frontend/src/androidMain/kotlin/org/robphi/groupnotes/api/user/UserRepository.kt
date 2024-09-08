@@ -1,6 +1,5 @@
 package org.robphi.groupnotes.api.user
 
-import org.robphi.groupnotes.api.user.UserService
 import org.robphi.groupnotes.auth.Auth
 
 class UserRepository(

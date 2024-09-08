@@ -19,8 +19,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.koin.compose.koinInject
 import org.koin.core.parameter.parametersOf
+import org.robphi.groupnotes.api.Note
 import org.robphi.groupnotes.api.note.NoteRepository
-import org.robphi.groupnotes.model.Note
 import org.robphi.groupnotes.ui.compose.CustomToolbar
 import org.robphi.groupnotes.ui.compose.GridItem
 import org.robphi.groupnotes.ui.compose.NumberIcon
@@ -86,11 +86,11 @@ class NotesScreenModel(
 @Composable
 fun NotesScreenPreview() {
     val notes = listOf(
-        Note(1, "Note 1"),
-        Note(2, "Note 2"),
-        Note(3, "Note 3"),
-        Note(4, "Note 4"),
-        Note(5, "Note 5"),
+        Note.createDummy("1"),
+        Note.createDummy("2"),
+        Note.createDummy("3"),
+        Note.createDummy("4"),
+        Note.createDummy("5"),
     )
 
     NoteListScreen(notes, onNoteClick = {})
@@ -103,6 +103,7 @@ fun NoteCard(note: Note, onClick: () -> Unit) {
             Text(text = note.title)
         },
         onClick = onClick,
+        onLongClick = {},
         contentTopStart = {
             NumberIcon(number = Random.nextInt(1, 7))
         },
