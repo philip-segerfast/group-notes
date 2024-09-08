@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.example.backend.api.modules.groups.GroupRequest;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 @Data
 @RequiredArgsConstructor
@@ -15,4 +17,14 @@ public class UserGroup {
         private long id;
         private String name;
         private long userId;
+
+        public UserGroup(String name, long userId) {
+                this.name = name;
+                this.userId = userId;
+        }
+
+        public static UserGroup of(GroupRequest userGroup) {
+                return new UserGroup(userGroup.name(),
+                        userGroup.userId());
+        }
 }

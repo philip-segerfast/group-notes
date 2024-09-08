@@ -1,6 +1,7 @@
 package org.example.backend.service;
 
 import lombok.RequiredArgsConstructor;
+import org.example.backend.api.modules.groups.GroupRequest;
 import org.example.backend.entity.UserGroup;
 import org.example.backend.repository.GroupRepository;
 import org.springframework.stereotype.Component;
@@ -14,21 +15,20 @@ import java.util.List;
 public class GroupService {
     private final GroupRepository groupRepository;
 
-    public Mono<List<UserGroup>> getAllGroups() {
-        return groupRepository.findAll()
-                .take(100)
-                .collectList();
+    public Flux<UserGroup> getAllGroups(long userId) {
+        return groupRepository.findAllByUserId(userId);
     }
 
     public Mono<UserGroup> getGroupByUserId(long id) {
         return groupRepository.findByUserId(id);
     }
 
-    public Mono<UserGroup> createGroup (UserGroup userGroup) {
-        return groupRepository.save(userGroup);
+    public Mono<UserGroup> createGroup(GroupRequest userGroup) {
+        return groupRepository.save(UserGroup.of(userGroup));
     }
 
     public Mono<Void> deleteGroup(Long groupId) {
+
         return groupRepository.deleteById(groupId);
     }
 }
