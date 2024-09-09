@@ -1,6 +1,6 @@
-# group-notes
+# Group Notes
 
-An application where users can share notes privately between invited members, family or for our self.
-The idea relie on multiple users should be able to write down notes simultaneously with live notes.
+A fullstack application where users can share notes within groups, family or privately.
+Similar to Google Docs but simpler and with live typing (multiple people can edit the notes at the same time).
 
-Backend is written with Java spring boot and FE is conducted in Android Studio.
+Backend framework is Spring Boot (with Java) and Frontend is Kotlin Multiplatform (although only Android is currently supported).
