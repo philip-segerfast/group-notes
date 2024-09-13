@@ -68,7 +68,7 @@ dependencies {
     implementation(libs.sqldelight.async.extensions)
     implementation(libs.sqldelight.coroutines.extensions)
 
-    testImplementation(libs.ktor.server.tests)
+//    testImplementation(libs.ktor.server.tests)
     testImplementation(libs.kotlin.test.junit)
 
     // tmp

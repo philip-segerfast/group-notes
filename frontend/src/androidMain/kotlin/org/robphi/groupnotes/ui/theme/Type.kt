@@ -1,4 +1,4 @@
-package org.robphi.groupnotes.ui.compose.theme
+package org.robphi.groupnotes.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

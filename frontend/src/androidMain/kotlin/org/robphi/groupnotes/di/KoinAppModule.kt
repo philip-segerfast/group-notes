@@ -8,7 +8,6 @@ import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.singleOf
-import org.koin.dsl.ModuleDeclaration
 import org.koin.dsl.module
 import org.robphi.groupnotes.api.group.FakeGroupService
 import org.robphi.groupnotes.api.group.GroupRepository
@@ -21,8 +20,8 @@ import org.robphi.groupnotes.api.user.UserRepository
 import org.robphi.groupnotes.api.user.UserService
 import org.robphi.groupnotes.auth.Auth
 import org.robphi.groupnotes.auth.FakeAuth
-import org.robphi.groupnotes.ui.compose.screen.groups.GroupsScreenViewModel
-import org.robphi.groupnotes.ui.compose.screen.notes.NotesScreenViewModel
+import org.robphi.groupnotes.ui.screen.grouplist.GroupListScreenViewModel
+import org.robphi.groupnotes.ui.screen.group.GroupScreenViewModel
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.create
@@ -80,7 +79,7 @@ val appModule = module {
 private fun Module.viewModelDependencies() {
     singleOf(::FakeAuth) { bind<Auth>() }
     // Normal ViewModel
-    viewModelOf(::GroupsScreenViewModel)
+    viewModelOf(::GroupListScreenViewModel)
     // This ViewModel has a custom parameter
-    viewModel { parameters -> NotesScreenViewModel(parameters.get(), get()) }
+    viewModel { parameters -> GroupScreenViewModel(parameters.get(), get()) }
 }

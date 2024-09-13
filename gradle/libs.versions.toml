@@ -39,7 +39,7 @@ retrofit2ReactorAdapter = "2.1.0"
 voyager = "1.1.0-alpha04"
 lifecycleViewmodelCompose = "2.7.0"
 #ktor = "2.3.8"
-ktor = "3.0.0-beta-1"
+ktor = "3.0.0-rc-1"
 
 [libraries]
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
@@ -99,7 +99,7 @@ ktor-koin = { module = "io.insert-koin:koin-ktor", version.ref = "koin-bom" }
 ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktorServerContentNegotiation" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
-ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor" }
+#ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor" }
 ktor-server-sse-jvm = { module = "io.ktor:ktor-server-sse-jvm", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorSerializationKotlinxJson" }
 

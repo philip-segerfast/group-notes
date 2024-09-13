@@ -5,9 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import cafe.adriel.voyager.navigator.Navigator
 import org.koin.compose.KoinContext
-import org.koin.core.context.KoinContext
-import org.robphi.groupnotes.ui.compose.screen.groups.GroupScreen
-import org.robphi.groupnotes.ui.compose.theme.GroupNotesTheme
+import org.robphi.groupnotes.ui.screen.grouplist.GroupListScreen
+import org.robphi.groupnotes.ui.theme.GroupNotesTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +16,7 @@ class MainActivity : ComponentActivity() {
             KoinContext {
                 GroupNotesTheme {
                     // A surface container using the 'background' color from the theme
-                    Navigator(screen = GroupScreen())
+                    Navigator(screen = GroupListScreen())
                 }
             }
 

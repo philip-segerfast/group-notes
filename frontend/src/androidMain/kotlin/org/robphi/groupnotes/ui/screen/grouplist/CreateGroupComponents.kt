@@ -1,4 +1,4 @@
-package org.robphi.groupnotes.ui.compose.screen.groups
+package org.robphi.groupnotes.ui.screen.grouplist
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -33,34 +33,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.robphi.groupnotes.api.User
-import org.robphi.groupnotes.ui.compose.CustomTextField2
-import org.robphi.groupnotes.ui.compose.SearchArea
-
-@Preview(showBackground = true)
-@Composable
-fun CreateGroupPreview() {
-    val items = listOf(
-        User(0, "Benny"),
-        User(0, "Link"),
-        User(0, "Anders"),
-        User(0, "Johnny"),
-        User(0, "Kent"),
-        User(0, "Alex"),
-        User(0, "Juan"),
-        User(0, "Robin"),
-        User(0, "Chris"),
-    )
-
-    CreateGroup(
-        items,
-        onCreateGroup = { _, _ -> },
-        onDismiss = {}
-    )
-}
+import org.robphi.groupnotes.ui.CustomTextField2
+import org.robphi.groupnotes.ui.SearchArea
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun CreateGroup(
+fun CreateGroupDialogContent(
     users: List<User>,
     onCreateGroup: (name: String, members: List<User>) -> Unit,
     onDismiss: () -> Unit
@@ -131,4 +109,26 @@ fun CreateGroup(
             }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CreateGroupPreview() {
+    val items = listOf(
+        User(0, "Benny"),
+        User(0, "Link"),
+        User(0, "Anders"),
+        User(0, "Johnny"),
+        User(0, "Kent"),
+        User(0, "Alex"),
+        User(0, "Juan"),
+        User(0, "Robin"),
+        User(0, "Chris"),
+    )
+
+    CreateGroupDialogContent(
+        items,
+        onCreateGroup = { _, _ -> },
+        onDismiss = {}
+    )
 }

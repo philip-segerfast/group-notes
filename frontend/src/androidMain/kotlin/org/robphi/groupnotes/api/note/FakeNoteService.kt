@@ -4,6 +4,8 @@ import kotlinx.collections.immutable.persistentMapOf
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 import org.robphi.groupnotes.api.Note
+import org.robphi.groupnotes.api.NoteList
+import org.robphi.groupnotes.util.createDummy
 
 class FakeNoteService : NoteService {
     private var notes = MutableStateFlow(persistentMapOf<Long, Note>())
@@ -26,7 +28,7 @@ class FakeNoteService : NoteService {
         return notes.value[id]!!
     }
 
-    override suspend fun getNotes(groupId: Long): List<Note> {
-        return notes.value.values.toList()
+    override suspend fun getNotes(groupId: Long): NoteList {
+        return NoteList(notes.value.values.toList())
     }
 }

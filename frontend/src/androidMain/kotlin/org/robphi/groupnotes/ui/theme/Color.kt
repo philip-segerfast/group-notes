@@ -1,4 +1,4 @@
-package org.robphi.groupnotes.ui.compose.theme
+package org.robphi.groupnotes.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

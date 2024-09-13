@@ -1,13 +1,15 @@
-package org.robphi.groupnotes.ui.compose.screen.groups
+package org.robphi.groupnotes.ui.screen.grouplist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.koin.core.logger.Logger
+import org.koin.core.component.KoinComponent
 import org.robphi.groupnotes.api.Group
 import org.robphi.groupnotes.api.GroupId
 import org.robphi.groupnotes.api.User
@@ -15,10 +17,10 @@ import org.robphi.groupnotes.api.UserId
 import org.robphi.groupnotes.api.group.GroupRepository
 import org.robphi.groupnotes.api.user.UserRepository
 
-class GroupsScreenViewModel(
+class GroupListScreenViewModel(
     private val groupRepository: GroupRepository,
     private val userRepository: UserRepository
-): ViewModel() {
+): ViewModel(), KoinComponent {
     private val _groups = MutableStateFlow<List<Group>>(emptyList())
     val groups = _groups.asStateFlow()
     

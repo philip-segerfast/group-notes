@@ -70,17 +70,7 @@ data class Note(
     val content: String,
     val groupId: GroupId,
     val timestamp: String
-) {
-    companion object {
-        fun createDummy(title: String): Note = Note(
-            id = 0,
-            title = title,
-            content = "",
-            groupId = 0,
-            timestamp = Instant.now().toString()
-        )
-    }
-}
+)
 
 @Serializable
 data class NoteList(
