@@ -47,6 +47,8 @@ dependencies {
 
     testImplementation(libs.kotlin.test.junit)
 
+    implementation(project(":server:gn-common"))
+
     implementation("org.springframework.boot:spring-boot-starter-webflux:3.3.0")
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc:3.3.0")
     implementation("io.netty:netty-all:4.1.110.Final")

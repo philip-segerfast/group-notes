@@ -1,6 +1,7 @@
 package org.example.backend.api;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.backend.api.modules.user.CreateUserRequest;
 import org.example.backend.api.modules.user.GetUserResponse;
 import org.example.backend.api.modules.user.StoredUsersResponse;
@@ -12,11 +13,13 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserRestController {
     private final UserService userService;
 
     @PostMapping("/create/{userName}")
     public Mono<User> createUser(@PathVariable CreateUserRequest userName) {
+        log.info("user: create/userName");
         return userService.createUser(userName.name());
     }
 
@@ -27,12 +30,14 @@ public class UserRestController {
 
     @GetMapping("/getUsers")
     public Mono<StoredUsersResponse> getAllUsers() {
+        log.info("user: getUsers");
         return userService.getAllUsers()
                 .map(StoredUsersResponse::new);
     }
 
     @GetMapping("/getUser/{id}")
     public Mono<GetUserResponse> getUser(@PathVariable long id) {
+        log.info("user: getUsers/{id}");
         return userService.getUserById(id)
                 .map(GetUserResponse::new);
     }

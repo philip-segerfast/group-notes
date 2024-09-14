@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.example.backend.api.modules.note.CreateNoteRequest;
 import org.springframework.data.annotation.Id;
 
+import java.time.Instant;
+
 @Data
 @RequiredArgsConstructor
 public class Note {
@@ -32,7 +34,7 @@ public class Note {
         public static Note of(CreateNoteRequest noteRequest) {
                 return new Note(noteRequest.title(),
                         noteRequest.content(),
-                        noteRequest.timestamp(),
+                        Instant.now().toString(),
                         noteRequest.groupId());
         }
 }

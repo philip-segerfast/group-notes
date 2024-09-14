@@ -18,7 +18,7 @@ class GroupListScreen : Screen {
     @Composable
     override fun Content() {
         val model: GroupListScreenViewModel = koinInject()
-
+        val navigator = LocalNavigator.currentOrThrow
         val groups by model.groups.collectAsState()
 
         var showCreateGroupDialog by remember { mutableStateOf(false) }
@@ -28,7 +28,7 @@ class GroupListScreen : Screen {
             onCreateGroup = { showCreateGroupDialog = true },
             onDeleteGroup = { model.deleteGroup(it.id) },
             onFetchGroups = { model.fetchGroupsAsync() },
-            onGroupClick = { GroupScreen(it.id) }
+            onGroupClick = { navigator.push(GroupScreen(it.id)) }
         )
 
         if(showCreateGroupDialog) {
