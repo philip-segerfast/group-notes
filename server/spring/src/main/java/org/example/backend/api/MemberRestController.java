@@ -6,7 +6,6 @@ import org.example.backend.api.modules.member.AddMemberRequest;
 import org.example.backend.service.MemberService;
 import org.example.backend.service.converter.MemberConverter;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
@@ -19,12 +18,13 @@ public class MemberRestController {
 
     @PostMapping("/create")
     public Mono<Void> addMembers(@RequestBody AddMemberRequest memberRequest) {
-        log.info("Called addMembers {}", memberRequest);
+        log.info("member: create");
         return memberService.addAllMembers(memberConverter.convert(memberRequest.userIdList(), memberRequest.groupId()));
     }
 
     @DeleteMapping("/delete/{memberId}")
     public Mono<Void> deleteMember(@PathVariable Long memberId) {
+        log.info("member: delete/{memberId}");
         return memberService.deleteById(memberId);
     }
 }
