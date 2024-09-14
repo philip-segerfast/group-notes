@@ -73,6 +73,13 @@ data class Note(
 )
 
 @Serializable
-data class NoteList(
-    val notes: List<Note>
+data class WrappedNote(
+    val note: Note
+)
+
+@Serializable
+data class CreateNoteRequest(
+    val title: String,
+    val content: String,
+    val groupId: GroupId
 )

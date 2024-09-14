@@ -17,7 +17,7 @@ class GroupRepository(
     private val auth: Auth
 ) {
 
-    suspend fun getGroupById(id: GroupId) = groupService.getGroupById(id)
+    suspend fun getGroupById(id: GroupId): Result<Group> = groupService.getGroupById(id).map { it.userGroup }
 
     suspend fun getAllGroups() = groupService.getAllGroups()
 

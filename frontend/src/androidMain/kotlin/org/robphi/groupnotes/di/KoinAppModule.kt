@@ -34,7 +34,7 @@ val appModule = module {
 
     single<Retrofit> {
         Retrofit.Builder()
-            .baseUrl("http://192.168.254.245:8080/")
+            .baseUrl("http://172.20.10.3:8080/")
             .addConverterFactory(Json.asConverterFactory("application/json; charset=utf-8".toMediaType()))
             .addCallAdapterFactory(ResultCallAdapterFactory.create())
             .build()
@@ -81,5 +81,5 @@ private fun Module.viewModelDependencies() {
     // Normal ViewModel
     viewModelOf(::GroupListScreenViewModel)
     // This ViewModel has a custom parameter
-    viewModel { parameters -> GroupScreenViewModel(parameters.get(), get()) }
+    viewModel { parameters -> GroupScreenViewModel(parameters.get(), get(), get()) }
 }

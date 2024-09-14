@@ -20,6 +20,7 @@ class GroupListScreen : Screen {
         val model: GroupListScreenViewModel = koinInject()
 
         val groups by model.groups.collectAsState()
+        val navigator = LocalNavigator.currentOrThrow
 
         var showCreateGroupDialog by remember { mutableStateOf(false) }
 
@@ -28,7 +29,7 @@ class GroupListScreen : Screen {
             onCreateGroup = { showCreateGroupDialog = true },
             onDeleteGroup = { model.deleteGroup(it.id) },
             onFetchGroups = { model.fetchGroupsAsync() },
-            onGroupClick = { GroupScreen(it.id) }
+            onGroupClick = { navigator.push(GroupScreen(it.id)) }
         )
 
         if(showCreateGroupDialog) {

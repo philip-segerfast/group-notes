@@ -21,8 +21,8 @@ import retrofit2.http.Path
 
 interface GroupService {
 
-    @GET("group/getById/{id}")
-    suspend fun getGroupById(@Path("id") id: Long): Result<Group>
+    @GET("group/getById/{groupId}")
+    suspend fun getGroupById(@Path("groupId") id: Long): Result<WrappedGroup>
 
     @GET("group/get_all")
     suspend fun getAllGroups(): Result<StoredGroups>

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -97,8 +98,9 @@ fun <T: Any> CustomGrid(
 @Composable
 fun CustomToolbar(
     title: String,
+    additionalContent: (@Composable RowScope.() -> Unit)? = null,
     onBackClick: (() -> Unit)? = null,
-    onReload: (() -> Unit)? = null
+    onReload: (() -> Unit)? = null,
 ) {
     Row(
         Modifier
@@ -126,6 +128,8 @@ fun CustomToolbar(
         }
 
         Spacer(Modifier.weight(1f))
+
+        additionalContent?.invoke(this)
 
         if(onReload != null) {
             IconButton(

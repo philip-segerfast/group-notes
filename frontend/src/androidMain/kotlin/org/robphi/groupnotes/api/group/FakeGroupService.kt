@@ -56,8 +56,8 @@ class FakeGroupService(
         TODO("Not yet implemented")
     }
 
-    override suspend fun getGroupById(id: Long): Result<Group> = runCatching {
-        _groups.value.first { it.id == id }
+    override suspend fun getGroupById(id: Long): Result<WrappedGroup> = runCatching {
+        WrappedGroup(_groups.value.first { it.id == id })
     }
 
     override suspend fun getAllGroups(): Result<StoredGroups> = Result.success(StoredGroups(_groups.first { it.isNotEmpty() }))
