@@ -18,7 +18,7 @@ class GroupListScreen : Screen {
     @Composable
     override fun Content() {
         val model: GroupListScreenViewModel = koinInject()
-
+        val navigator = LocalNavigator.currentOrThrow
         val groups by model.groups.collectAsState()
         val navigator = LocalNavigator.currentOrThrow
 

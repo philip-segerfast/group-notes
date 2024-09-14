@@ -17,27 +17,30 @@ import reactor.core.publisher.Mono;
 public class GroupRestController {
     private final GroupService groupService;
 
-    @GetMapping("/getById/{id}")
-    public Mono<GroupResponse> getById(@PathVariable long id) {
-        return groupService.getGroupByUserId(id)
+    @GetMapping("/getById/{groupId}")
+    public Mono<GroupResponse> getById(@PathVariable long groupId) {
+        log.info("group: getById");
+        return groupService.getGroupByGroupId(groupId)
                 .map(GroupResponse::new);
     }
 
     @GetMapping("/get_all/{userId}")
     public Flux<StoredGroups> getAll(@PathVariable long userId) {
+        log.info("group: getAll");
         return groupService.getAllGroups(userId)
                 .map(StoredGroups::new);
     }
 
     @PostMapping("/create")
     public Mono<GroupResponse> createGroup(@RequestBody GroupRequest groupRequest) {
-        log.info("Create group was called with {}", groupRequest);
+        log.info("group: create");
         return groupService.createGroup(groupRequest)
                 .map(GroupResponse::new);
     }
 
     @DeleteMapping("/delete/{groupId}")
     public Mono<Void> deleteGroup(@PathVariable Long groupId) {
+        log.info("group: delete/{groupId}");
         return groupService.deleteGroup(groupId);
     }
 }

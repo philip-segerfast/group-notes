@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-
 @Component
 @RequiredArgsConstructor
 public class GroupService {
@@ -19,8 +17,8 @@ public class GroupService {
         return groupRepository.findAllByUserId(userId);
     }
 
-    public Mono<UserGroup> getGroupByUserId(long id) {
-        return groupRepository.findByUserId(id);
+    public Mono<UserGroup> getGroupByGroupId(long groupId) {
+        return groupRepository.findById(groupId);
     }
 
     public Mono<UserGroup> createGroup(GroupRequest userGroup) {
