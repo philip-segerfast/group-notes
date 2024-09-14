@@ -7,6 +7,8 @@ import org.example.backend.api.modules.user.GetUserResponse;
 import org.example.backend.api.modules.user.StoredUsersResponse;
 import org.example.backend.entity.User;
 import org.example.backend.service.UserService;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
@@ -16,6 +18,16 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class UserRestController {
     private final UserService userService;
+
+    @GetMapping
+    public String getUser() {
+        return "User Information";
+    }
+
+    @GetMapping("/")
+    public String home(@AuthenticationPrincipal OAuth2User principal) {
+        return "Hello, " + principal.getAttribute("name") + "!";
+    }
 
     @PostMapping("/create/{userName}")
     public Mono<User> createUser(@PathVariable CreateUserRequest userName) {

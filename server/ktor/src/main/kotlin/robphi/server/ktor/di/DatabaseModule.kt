@@ -7,21 +7,12 @@ import co.touchlab.kermit.Logger
 import io.r2dbc.postgresql.PostgresqlConnectionFactoryProvider.POSTGRESQL_DRIVER
 import io.r2dbc.spi.ConnectionFactories
 import io.r2dbc.spi.ConnectionFactoryOptions
-import io.r2dbc.spi.ConnectionFactoryOptions.DATABASE
-import io.r2dbc.spi.ConnectionFactoryOptions.DRIVER
-import io.r2dbc.spi.ConnectionFactoryOptions.HOST
-import io.r2dbc.spi.ConnectionFactoryOptions.PASSWORD
-import io.r2dbc.spi.ConnectionFactoryOptions.PORT
-import io.r2dbc.spi.ConnectionFactoryOptions.USER
+import io.r2dbc.spi.ConnectionFactoryOptions.*
 import kotlinx.coroutines.reactive.awaitSingle
 import kotlinx.coroutines.runBlocking
 import org.koin.dsl.module
 import robphi.server.ktor.database.Database
 import robphi.server.ktor.database.Database.Companion.Schema
-import robphi.server.ktor.database.GroupQueries
-import robphi.server.ktor.database.MemberQueries
-import robphi.server.ktor.database.NoteQueries
-import robphi.server.ktor.database.UserQueries
 
 private const val DB_IP = "127.0.0.1"
 private const val DB_PORT = 5432

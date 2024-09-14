@@ -1,4 +1,26 @@
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web.reactive.function.client: DEBUG
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 1047339938218-uenta8phoocgbqi4pvmtmbei2kg36nes.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - profile
+              - email
+            redirect-uri: "{baseUrl}/login/oauth2/code/google"
+            authorization-grant-type: authorization_code
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
   application:
     name: Backend
   r2dbc:
