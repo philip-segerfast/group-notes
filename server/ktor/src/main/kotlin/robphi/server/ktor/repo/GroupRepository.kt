@@ -6,7 +6,6 @@ import robphi.server.ktor.database.GroupQueries
 import robphi.server.ktor.model.GroupId
 import robphi.server.ktor.model.GroupModel
 import robphi.server.ktor.model.UserId
-import robphi.server.ktor.model.UserModel
 import robphi.server.ktor.model.toModel
 
 interface GroupRepository {

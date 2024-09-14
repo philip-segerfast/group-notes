@@ -1,7 +1,6 @@
 package robphi.server.ktor.api
 
-import io.ktor.server.routing.Route
-import io.ktor.server.routing.route
+import io.ktor.server.routing.*
 
 fun Route.groupRoutes() {
     route("/user") {

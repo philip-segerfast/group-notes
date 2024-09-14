@@ -1,15 +1,9 @@
 package robphi.server.ktor.api
 
 import co.touchlab.kermit.Logger
-import io.ktor.http.HttpStatusCode
-import io.ktor.server.application.call
-import io.ktor.server.response.respond
-import io.ktor.server.routing.Route
-import io.ktor.server.routing.Routing
-import io.ktor.server.routing.get
-import io.ktor.server.routing.patch
-import io.ktor.server.routing.post
-import io.ktor.server.routing.route
+import io.ktor.http.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
 import robphi.server.ktor.model.UserModel
 import robphi.server.ktor.repo.UserRepository
 

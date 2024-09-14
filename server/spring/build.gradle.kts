@@ -1,5 +1,4 @@
 import org.springframework.boot.gradle.tasks.bundling.BootJar
-import org.springframework.boot.gradle.tasks.run.BootRun
 
 plugins {
     alias(libs.plugins.kotlinJvm)
@@ -48,8 +47,10 @@ dependencies {
     testImplementation(libs.kotlin.test.junit)
 
     implementation(project(":server:gn-common"))
-
-    implementation("org.springframework.boot:spring-boot-starter-webflux:3.3.0")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.security:spring-security-oauth2-client")
+    implementation("org.springframework.security:spring-security-oauth2-jose")  // For JWT
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc:3.3.0")
     implementation("io.netty:netty-all:4.1.110.Final")
     implementation("org.mariadb:r2dbc-mariadb:1.2.0")

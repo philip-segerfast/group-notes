@@ -1,19 +1,9 @@
 package robphi.server.ktor.plugins
 
-import co.touchlab.kermit.Logger
-import io.ktor.server.application.Application
-import io.ktor.server.application.call
-import io.ktor.server.application.log
-import io.ktor.server.response.respondText
-import io.ktor.server.routing.get
-import io.ktor.server.routing.routing
-import io.ktor.server.sse.ServerSSESession
-import io.ktor.server.sse.sse
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.withTimeout
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.internal.throwMissingFieldException
-import kotlinx.serialization.json.Json
+import io.ktor.server.application.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
+import io.ktor.server.sse.*
 import org.koin.ktor.ext.inject
 import robphi.server.ktor.api.groupRoutes
 import robphi.server.ktor.api.memberRoutes
@@ -21,7 +11,6 @@ import robphi.server.ktor.api.noteRoutes
 import robphi.server.ktor.api.userRoutes
 import robphi.server.ktor.model.UserModel
 import robphi.server.ktor.repo.UserRepository
-import kotlin.time.Duration.Companion.seconds
 
 fun Application.configureRouting() {
 
