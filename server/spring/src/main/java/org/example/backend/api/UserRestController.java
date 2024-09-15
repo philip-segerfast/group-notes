@@ -3,12 +3,16 @@ package org.example.backend.api;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.backend.api.modules.user.CreateUserRequest;
+import org.example.backend.api.modules.user.CreateUserResponse;
 import org.example.backend.api.modules.user.GetUserResponse;
 import org.example.backend.api.modules.user.StoredUsersResponse;
 import org.example.backend.entity.User;
 import org.example.backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -18,9 +22,10 @@ public class UserRestController {
     private final UserService userService;
 
     @PostMapping("/create/{userName}")
-    public Mono<User> createUser(@PathVariable CreateUserRequest userName) {
+    public Mono<CreateUserResponse> createUser(@PathVariable CreateUserRequest userName) {
         log.info("user: create/userName");
-        return userService.createUser(userName.name());
+        return userService.createUser(userName.name())
+                .map(CreateUserResponse::of);
     }
 
     @PatchMapping("/update/{id}")
@@ -29,16 +34,16 @@ public class UserRestController {
     }
 
     @GetMapping("/getUsers")
-    public Mono<StoredUsersResponse> getAllUsers() {
+    public Mono<List<CreateUserResponse>> getAllUsers() {
         log.info("user: getUsers");
         return userService.getAllUsers()
-                .map(StoredUsersResponse::new);
+                .map(CreateUserResponse::from);
     }
 
     @GetMapping("/getUser/{id}")
-    public Mono<GetUserResponse> getUser(@PathVariable long id) {
+    public Mono<CreateUserResponse> getUser(@PathVariable long id) {
         log.info("user: getUsers/{id}");
         return userService.getUserById(id)
-                .map(GetUserResponse::new);
+                .map(CreateUserResponse::of);
     }
 }

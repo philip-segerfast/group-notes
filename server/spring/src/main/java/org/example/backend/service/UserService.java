@@ -13,13 +13,9 @@ import java.util.List;
 public class UserService {
     private final UserRepository userRepository;
     public Mono<User> createUser(String name) {
-        /*
-        return userRepository.save(User)
+        return userRepository.save(User.builder()
                         .name(name)
                 .build());
-
-         */
-        return null;
     }
 
     public Mono<List<User>> getAllUsers() {
