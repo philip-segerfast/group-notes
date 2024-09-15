@@ -18,9 +18,10 @@ public class NoteRestController {
     private final NoteService noteService;
 
     @GetMapping("/get_notes/{groupId}")
-    public Flux<Note> getAllNotes(@PathVariable long groupId) {
+    public Flux<CreateNoteReponse> getAllNotes(@PathVariable long groupId) {
         log.info("note: get_notes/groupId");
-        return noteService.getAllNotes(groupId);
+        return noteService.getAllNotes(groupId)
+                .map(CreateNoteReponse::of);
     }
 
     @PostMapping("/create")
