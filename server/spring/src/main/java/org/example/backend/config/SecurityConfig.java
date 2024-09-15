@@ -15,12 +15,13 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableWebFluxSecurity
 public class SecurityConfig {
+
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
         http
                 .authorizeExchange(exchanges -> exchanges
-                        .pathMatchers("/oauth2/**").permitAll()  // Allow public access to login and OAuth2 endpoints
-                        .anyExchange().authenticated()  // Require authentication for all other endpoints
+                        .pathMatchers("/oauth2/**").permitAll()
+                        .anyExchange().authenticated()
                 )
                 .oauth2Login(withDefaults())
                 .logout(logout ->
