@@ -26,7 +26,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.create
 
-private const val FAKE = false
+private const val FAKE = true
 
 val appModule = module {
 
@@ -58,7 +58,7 @@ val appModule = module {
 
     single<UserService> {
         when {
-            FAKE -> FakeUserService()
+            FAKE -> FakeUserService(get())
             else -> get<Retrofit>().create<UserService>()
         }
     }

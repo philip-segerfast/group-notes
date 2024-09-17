@@ -11,16 +11,16 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.robphi.groupnotes.api.AddMembersRequest
 import org.robphi.groupnotes.api.CreateGroupRequest
 import org.robphi.groupnotes.api.CreateGroupResponse
+import org.robphi.groupnotes.api.GroupId
 import org.robphi.groupnotes.api.UserId
 import org.robphi.groupnotes.api.WrappedGroup
+import org.robphi.groupnotes.util.createDummy
 import retrofit2.Response
 import kotlin.random.Random
-
-private typealias GroupId = Long
-private typealias UserId = Long
 
 class FakeGroupService(
     private val userRepository: UserRepository
@@ -30,7 +30,7 @@ class FakeGroupService(
 
     private val seed = 10
 
-    private val _groups = MutableStateFlow<List<Group>>(emptyList())
+    private val _groups = MutableStateFlow(emptyList<Group>())
     private val _groupMembers = MutableStateFlow<Map<GroupId, List<UserId>>>(emptyMap())
     val groupsWithMembers = _groups.combine(_groupMembers) { groups, members ->
         groups.associateWith { group -> members[group.id]!! }
@@ -43,18 +43,28 @@ class FakeGroupService(
     }
 
     private suspend fun setFakeData() {
-        val allUsers = userRepository.getAllUsers().getOrElse { return }.users
+        val allUsers = userRepository.getAllUsers().getOrThrow()
         val random = Random(seed)
 
-        val groups = createFakeGroups(10, allUsers, random)
-        val groupMembers = createFakeGroupMembers(groups, allUsers, random)
+        val groups = createFakeClientGroups()
         _groups.value = groups
+
+        val groupMembers = createFakeGroupMembers(groups, allUsers, random)
         _groupMembers.value = groupMembers
     }
 
-    override suspend fun getGroupsForUser(user: UserId): Result<List<WrappedGroup>> {
-        TODO("Not yet implemented")
+    private suspend fun createFakeClientGroups(): List<Group> = runBlocking {
+        val clientUser = userRepository.getClientUser().getOrThrow() ?: error("Client user not found.")
+        listOf("Family", "School", "Friends", "Work", "Random", "Other", "${clientUser.name}'s secrets").mapIndexed { index, groupName ->
+            Group.createDummy(groupName, index.toLong(), clientUser.id)
+        }
     }
+
+    override suspend fun getGroupsForUser(userId: UserId): Result<List<WrappedGroup>> =
+        _groups.value
+            .filter { it.userId == userId }
+            .map { WrappedGroup(it) }
+            .let { Result.success(it) }
 
     override suspend fun getGroupById(id: Long): Result<WrappedGroup> = runCatching {
         WrappedGroup(_groups.value.first { it.id == id })
@@ -88,29 +98,37 @@ class FakeGroupService(
         private const val MIN_MEMBERS_PER_GROUP = 1
         private const val MAX_MEMBERS_PER_GROUP = 6
 
-        fun createFakeGroups(
-            count: Int,
-            users: List<User>,
-            random: Random
-        ): List<Group> = List(count) {
-            Group(currentGroupId++, "Group #$currentGroupId", users.random(random).id)
-        }
-
         fun createFakeGroupMembers(
-            groups: List<Group>,
+            clientGroups: List<Group>,
             users: List<User>,
             random: Random
-        ): Map<GroupId, List<UserId>> = groups.associateWith { group ->
-            val membersCount = random.nextInt(MIN_MEMBERS_PER_GROUP, MAX_MEMBERS_PER_GROUP)
-            val usersExceptGroupCreator = users.filter { it.id != group.userId }
-            // Get random members
-            val members: List<User> = (0..membersCount).fold(emptyList()) { members, _ ->
-                val remainingUsers = usersExceptGroupCreator - members.toSet()
-                members + remainingUsers.random(random)
-            }
-            members
-        }.map { (group, members) ->
-            group.id to members.map { it.id }
-        }.toMap()
+        ): Map<GroupId, List<UserId>> {
+            println(
+                buildString {
+                    appendLine("Creating fake group members.")
+                    val clientGroupsBulletList = clientGroups
+                        .takeIf { it.isNotEmpty() }
+                        ?.joinToString("") { "${ System.lineSeparator() }* $it" }
+                        ?: "None"
+                    appendLine("Client groups: $clientGroupsBulletList")
+                    appendLine("Users: $users")
+                }
+            )
+
+            return clientGroups.associateWith { group ->
+                val membersCount = random.nextInt(MIN_MEMBERS_PER_GROUP, MAX_MEMBERS_PER_GROUP)
+                println("Group ${group.name} will have $membersCount members.")
+                val usersExceptGroupCreator = users.filter { it.id != group.userId }
+
+                // Get random members
+                val members: List<User> = (0..membersCount).fold(emptyList()) { members, _ ->
+                    val remainingUsers = usersExceptGroupCreator - members.toSet()
+                    members + remainingUsers.random(random)
+                }
+                members
+            }.map { (group, members) ->
+                group.id to members.map { it.id }
+            }.toMap()
+        }
     }
 }

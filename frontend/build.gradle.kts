@@ -1,5 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+import com.codingfeline.buildkonfig.compiler.FieldSpec
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
+import java.util.Properties
+
+private val packageName = "org.robphi.groupnotes"
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -7,6 +12,8 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlinx.serialization)
+
+    id("com.codingfeline.buildkonfig") version "0.15.2"
 }
 
 kotlin {
@@ -31,22 +38,15 @@ kotlin {
         }
     }
 
+    fun KotlinDependencyHandler.kmpAuth() {
+        implementation("io.github.mirzemehdi:kmpauth-google:2.0.0") //Google One Tap Sign-In
+//            implementation("io.github.mirzemehdi:kmpauth-firebase:<version>") //Integrated Authentications with Firebase
+        implementation("io.github.mirzemehdi:kmpauth-uihelper:2.0.0") //UiHelper SignIn buttons (AppleSignIn, GoogleSignInButton)
+    }
+
     sourceSets {
         val desktopMain by getting
 
-        androidMain.dependencies {
-            implementation(libs.koin.android)
-            implementation(libs.koin.androidx.compose)
-
-            implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7")
-
-            implementation(libs.compose.ui.tooling.preview)
-            implementation(libs.androidx.activity.compose)
-//            implementation(projects.shared)
-        }
-        desktopMain.dependencies {
-            implementation(compose.desktop.currentOs)
-        }
         commonMain.dependencies {
             implementation(projects.shared)
 
@@ -60,12 +60,35 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+
+            implementation("com.codingfeline.buildkonfig:buildkonfig-gradle-plugin:0.15.2")
+        }
+        androidMain.dependencies {
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
+
+            implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7")
+
+            implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.androidx.activity.compose)
+
+            implementation("org.automerge:automerge:0.0.7")
+
+            kmpAuth()
+        }
+        iosMain.dependencies {
+            kmpAuth()
+        }
+        desktopMain.dependencies {
+            implementation(compose.desktop.currentOs)
+
+            implementation("org.automerge:automerge:0.0.7")
         }
     }
 }
 
 android {
-    namespace = "org.robphi.groupnotes"
+    namespace = packageName
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -73,7 +96,7 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        applicationId = "org.robphi.groupnotes"
+        applicationId = packageName
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
@@ -155,8 +178,39 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "org.robphi.groupnotes"
+            packageName = this@Build_gradle.packageName
             packageVersion = "1.0.0"
         }
     }
+}
+
+buildkonfig {
+    packageName = "org.robphi.groupnotes.shared"
+
+    val props = try {
+        readLocalProperties()
+    } catch (e: Exception) {
+        error("Failed to load local.properties: $e")
+    }
+
+    defaultConfigs {
+        buildConfigField(
+            FieldSpec.Type.STRING,
+            "WEB_CLIENT_ID",
+            props["web_client_id"]?.toString() ?: error("Couldn't read web_client_id from local.properties. Did you forget to add it?")
+        )
+    }
+}
+
+private fun readLocalProperties(): Properties {
+    val props = Properties()
+
+    try {
+        props.load(file("local.properties").inputStream())
+    } catch (e: Exception) {
+        // keys are private and can not be committed to git
+        throw e
+    }
+
+    return props
 }

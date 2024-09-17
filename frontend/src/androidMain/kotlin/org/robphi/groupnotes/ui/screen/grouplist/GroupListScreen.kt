@@ -17,9 +17,8 @@ class GroupListScreen : Screen {
 
     @Composable
     override fun Content() {
-        val model: GroupListScreenViewModel = koinInject()
-        val navigator = LocalNavigator.currentOrThrow
-        val groups by model.groups.collectAsState()
+        val viewModel: GroupListScreenViewModel = koinInject()
+        val groups by viewModel.groups.collectAsState()
         val navigator = LocalNavigator.currentOrThrow
 
         var showCreateGroupDialog by remember { mutableStateOf(false) }
@@ -27,19 +26,19 @@ class GroupListScreen : Screen {
         GroupListScreenUI(
             groups = groups,
             onCreateGroup = { showCreateGroupDialog = true },
-            onDeleteGroup = { model.deleteGroup(it.id) },
-            onFetchGroups = { model.fetchGroupsAsync() },
+            onDeleteGroup = { viewModel.deleteGroup(it.id) },
+            onFetchGroups = { viewModel.fetchGroupsAsync() },
             onGroupClick = { navigator.push(GroupScreen(it.id)) }
         )
 
         if(showCreateGroupDialog) {
-            val users by model.users.collectAsState()
+            val users by viewModel.users.collectAsState()
 
             Dialog(onDismissRequest = { showCreateGroupDialog = false }) {
                 CreateGroupDialogContent(
                     users = users,
                     onDismiss = {showCreateGroupDialog = false},
-                    onCreateGroup = { groupName, members -> model.createGroup(groupName, members.map { it.id }) }
+                    onCreateGroup = { groupName, members -> viewModel.createGroup(groupName, members.map { it.id }) }
                 )
             }
         }
