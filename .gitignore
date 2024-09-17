@@ -119,3 +119,4 @@ fabric.properties
 frontend/.kotlin/sessions/
 server-spring/src/main/resources/application.yaml
 /frontend/local.properties
+/local.properties
