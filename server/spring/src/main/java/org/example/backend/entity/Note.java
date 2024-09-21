@@ -15,6 +15,7 @@ public class Note {
         private String title;
         private String content;
         private String timestamp;
+        private byte[] byteblob;
         private long groupId;
 
         public Note(long id, String title, String content, String timestamp, long groupId) {

@@ -4,20 +4,16 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.backend.api.modules.user.CreateUserRequest;
 import org.example.backend.api.modules.user.CreateUserResponse;
-import org.example.backend.api.modules.user.GetUserResponse;
-import org.example.backend.api.modules.user.StoredUsersResponse;
-import org.example.backend.entity.User;
 import org.example.backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-@RequiredArgsConstructor
-@RestController
-@RequestMapping("/user")
 @Slf4j
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/user")
 public class UserRestController {
     private final UserService userService;
 

@@ -13,7 +13,6 @@ import java.util.List;
 public class MemberService {
     private final MemberRepository memberRepository;
 
-
     public Mono<Void> addAllMembers(List<Member> memberList) {
         return memberRepository
                 .saveAll(memberList)
