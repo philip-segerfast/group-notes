@@ -48,8 +48,10 @@ dependencies {
 
     implementation(project(":server:gn-common"))
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.automerge:automerge:0.0.7")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("com.google.http-client:google-http-client-jackson2:1.45.0")
+    implementation("org.springframework.security:spring-security-oauth2-client")
     implementation("com.google.api-client:google-api-client:2.7.0")
     implementation("com.google.auth:google-auth-library-oauth2-http:1.25.0")
     implementation("org.springframework.security:spring-security-config")

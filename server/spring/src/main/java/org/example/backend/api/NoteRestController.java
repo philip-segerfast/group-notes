@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@RequiredArgsConstructor
-@RestController
-@RequestMapping("/note")
 @Slf4j
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/note")
 public class NoteRestController {
     private final NoteService noteService;
 

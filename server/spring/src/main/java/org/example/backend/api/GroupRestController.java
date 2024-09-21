@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@RequiredArgsConstructor
-@RestController
-@RequestMapping("/group")
 @Slf4j
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/group")
 public class GroupRestController {
     private final GroupService groupService;
 
@@ -24,7 +24,11 @@ public class GroupRestController {
     }
 
     @GetMapping("/get_all/{userId}")
-    public Flux<GroupResponse> getAll(@PathVariable long userId) {
+    public Flux<GroupResponse> getAll(
+            @PathVariable long userId,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "1") int size,
+            @RequestParam(defaultValue = "id") String sort) {
         log.info("group: getAll");
         return groupService.getAllGroups(userId)
                 .map(GroupResponse::of);
