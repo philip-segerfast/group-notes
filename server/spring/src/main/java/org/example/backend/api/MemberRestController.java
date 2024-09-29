@@ -8,10 +8,10 @@ import org.example.backend.service.converter.MemberConverter;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
-@RequiredArgsConstructor
-@RestController
-@RequestMapping("/member")
 @Slf4j
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/member")
 public class MemberRestController {
     private final MemberService memberService;
     private final MemberConverter memberConverter;
@@ -19,7 +19,8 @@ public class MemberRestController {
     @PostMapping("/create")
     public Mono<Void> addMembers(@RequestBody AddMemberRequest memberRequest) {
         log.info("member: create");
-        return memberService.addAllMembers(memberConverter.convert(memberRequest.userIdList(), memberRequest.groupId()));
+        return memberConverter.convert(memberRequest.userIdList(), memberRequest.groupId())
+                .flatMap(memberService::addAllMembers);
     }
 
     @DeleteMapping("/delete/{memberId}")

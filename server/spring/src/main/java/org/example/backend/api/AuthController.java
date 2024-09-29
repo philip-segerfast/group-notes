@@ -15,17 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
 
-@RequiredArgsConstructor
-@RestController
-@RequestMapping("/auth")
 @Slf4j
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/auth")
 public class AuthController {
-    private static final String CLIENT_ID = "488148648951-qetv0tvda8b9vge94dtr03c6acko4a16.apps.googleusercontent.com"; // Replace with your Google Client ID
+    private static final String CLIENT_ID = "488148648951-qetv0tvda8b9vge94dtr03c6acko4a16.apps.googleusercontent.com";
 
     @PostMapping("/google")
     public ResponseEntity<?> validateGoogleToken(@RequestBody TokenRequest tokenRequest) {
         try {
-            // Verify the token using Google’s API
             GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), JacksonFactory.getDefaultInstance())
                     .setAudience(Collections.singletonList(CLIENT_ID))
                     .build();
