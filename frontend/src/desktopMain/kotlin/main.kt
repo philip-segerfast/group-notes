@@ -1,37 +1,20 @@
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.size
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import org.automerge.Document
-import org.automerge.ObjectId
-import org.automerge.ObjectType
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import di.appModule
+import org.koin.core.context.startKoin
+import ui.App
 
 fun main() {
-
-    val doc = Document()
-    val transaction = doc.startTransaction()
-    transaction.set(ObjectId.ROOT, "Text", ObjectType.TEXT)
-    transaction.commit()
+    startKoin {
+        modules(appModule)
+    }
 
     application {
         Window(
             onCloseRequest = ::exitApplication,
-            title = "DefaultKmpProject",
+            title = "Group Notes",
         ) {
-
+            App()
         }
     }
-}
-
-
-@Preview
-@Composable
-fun Test(modifier: Modifier = Modifier) {
-    Box(Modifier.size(50.dp).background(Color.Green))
 }

@@ -41,12 +41,9 @@ tasks.getByName<Zip>("distZip") {
 }
 
 dependencies {
-    implementation(projects.shared)
-    implementation(projects.server.shared)
-
     testImplementation(libs.kotlin.test.junit)
 
-    implementation(project(":server:gn-common"))
+//    implementation(project(":server:gn-common"))
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("com.google.http-client:google-http-client-jackson2:1.45.0")

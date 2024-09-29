@@ -32,9 +32,9 @@ dependencyResolutionManagement {
 
 include(":frontend")
 include(":shared")
-include(":server:shared")
 include(":server:ktor")
 include(":server:spring")
 include(":server:gn-common")
 include("server:gn-common")
 findProject(":server:gn-common")?.name = "gn-common"
+include(":diff-match-patch")

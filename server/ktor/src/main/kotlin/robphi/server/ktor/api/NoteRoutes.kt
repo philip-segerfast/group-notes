@@ -1,7 +1,7 @@
 package robphi.server.ktor.api
 
-import io.ktor.server.application.*
+import io.ktor.server.routing.Route
 
-fun Application.noteRoutes() {
+fun Route.noteRoutes() {
 
 }

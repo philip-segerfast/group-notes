@@ -1,9 +1,20 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 kotlin {
+    targets.configureEach {
+        compilations.configureEach {
+            compileTaskProvider.get().compilerOptions {
+                freeCompilerArgs.add("-Xexpect-actual-classes")
+            }
+        }
+    }
+
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -21,10 +32,23 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             // put your Multiplatform dependencies here
+            api("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
+
+            // kotlinx-serialization
+            api(libs.kotlinx.serialization.json)
+            api(libs.ktor.serialization.protobuf)
+            api(libs.kotlinx.collections.immutable)
+
+            api(libs.kotlinx.coroutines.core)
         }
 
         androidMain.dependencies {
             // put Android dependencies here
+            api(libs.automerge.java)
+        }
+
+        jvmMain.dependencies {
+            api(libs.automerge.java)
         }
     }
 }

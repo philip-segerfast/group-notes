@@ -39,12 +39,11 @@ application {
 
 repositories {
     mavenCentral()
-    maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }
+    google()
 }
 
 dependencies {
     implementation(projects.shared)
-    implementation(projects.server.shared)
 
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
 
@@ -52,11 +51,8 @@ dependencies {
     implementation(libs.ktor.server.core)
     implementation(libs.ktor.server.netty)
     implementation(libs.ktor.server.content.negotiation)
-    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.serialization.json)
     implementation(libs.ktor.koin)
-
-    // https://mvnrepository.com/artifact/io.ktor/ktor-server-sse-jvm
-    implementation(libs.ktor.server.sse.jvm)
 
     implementation("io.r2dbc:r2dbc-spi:1.0.0.RELEASE")
     implementation("org.postgresql:r2dbc-postgresql:1.0.5.RELEASE")

@@ -28,7 +28,6 @@ private fun Application.module() {
     install(Koin) {
         modules(databaseModule, userModule, appModule)
     }
-    install(SSE)
     configureSerialization()
     configureRouting()
 }

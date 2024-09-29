@@ -7,13 +7,22 @@ import java.util.Properties
 private val packageName = "org.robphi.groupnotes"
 
 plugins {
+    // KMP
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
+    id("com.codingfeline.buildkonfig") version "0.15.2"
+    // KMP - Compose
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    // KMP - Kotlin Serialization
     alias(libs.plugins.kotlinx.serialization)
+    // Android
+    alias(libs.plugins.androidApplication)
+}
 
-    id("com.codingfeline.buildkonfig") version "0.15.2"
+repositories {
+    google()
+    mavenCentral()
+    maven("https://jitpack.io")
 }
 
 kotlin {
@@ -33,15 +42,9 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = "Group Notes"
             isStatic = true
         }
-    }
-
-    fun KotlinDependencyHandler.kmpAuth() {
-        implementation("io.github.mirzemehdi:kmpauth-google:2.0.0") //Google One Tap Sign-In
-//            implementation("io.github.mirzemehdi:kmpauth-firebase:<version>") //Integrated Authentications with Firebase
-        implementation("io.github.mirzemehdi:kmpauth-uihelper:2.0.0") //UiHelper SignIn buttons (AppleSignIn, GoogleSignInButton)
     }
 
     sourceSets {
@@ -53,6 +56,7 @@ kotlin {
             implementation(project.dependencies.platform(libs.koin.bom))
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
+            implementation(libs.koin.viewmodel)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -61,33 +65,60 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
-            implementation("com.codingfeline.buildkonfig:buildkonfig-gradle-plugin:0.15.2")
+            // Navigator
+            implementation(libs.voyager.navigator)
+            // Screen Model
+            implementation(libs.voyager.screenmodel)
+            // Transitions
+            implementation(libs.voyager.transitions)
+
+            implementation("androidx.datastore:datastore:1.1.1")
+            implementation("androidx.datastore:datastore-preferences:1.1.1")
+
+            implementation(libs.rsocket.ktor.client)
+            implementation(compose.material3)
+            implementation(compose.materialIconsExtended)
+            implementation(libs.jetbrains.lifecycle.compose)
         }
         androidMain.dependencies {
             implementation(libs.koin.android)
             implementation(libs.koin.androidx.compose)
 
-            implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7")
-
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
 
-            implementation("org.automerge:automerge:0.0.7")
+            implementation(libs.converter.kotlinx.serialization)
 
-            kmpAuth()
+            val androidxCredentialsVersion = "1.3.0-rc01"
+            val googleIdVersion = "1.1.1"
+            implementation("androidx.credentials:credentials:$androidxCredentialsVersion")
+            implementation("androidx.credentials:credentials-play-services-auth:$androidxCredentialsVersion")
+            implementation("com.google.android.libraries.identity.googleid:googleid:$googleIdVersion")
         }
         iosMain.dependencies {
-            kmpAuth()
+
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
-
-            implementation("org.automerge:automerge:0.0.7")
         }
     }
 }
 
 android {
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("C:\\dev\\Android\\Keystore\\debugKeystore.jks")
+            storePassword = "password"
+            keyAlias = "debugkeystore"
+            keyPassword = "password"
+        }
+        create("release") {
+            storeFile = file("C:\\dev\\Android\\Keystore\\release.jks")
+            storePassword = "password"
+            keyAlias = "release"
+            keyPassword = "password"
+        }
+    }
     namespace = packageName
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
@@ -110,6 +141,7 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     buildFeatures {
@@ -122,51 +154,21 @@ android {
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
 
-        debugImplementation(libs.compose.ui.tooling)
-
-        implementation(libs.androidx.lifecycle.viewmodel.compose)
         testImplementation("org.testng:testng:6.9.6")
         coreLibraryDesugaring(libs.desugar.jdk.libs)
 
         implementation(libs.androidx.core.ktx)
-        implementation(libs.androidx.lifecycle.viewmodel.ktx)
-        implementation(libs.androidx.lifecycle.runtime.ktx)
         implementation(libs.androidx.activity.compose)
-        implementation(platform(libs.androidx.compose.bom))
-        implementation(libs.androidx.ui)
-        implementation(libs.androidx.ui.graphics)
-        implementation(libs.androidx.ui.tooling.preview)
-        implementation(libs.androidx.material3)
-        androidTestImplementation(platform(libs.androidx.compose.bom))
-        debugImplementation(libs.androidx.ui.tooling)
-        debugImplementation(libs.androidx.ui.test.manifest)
 
         implementation(libs.kotlinx.coroutines.android)
         implementation(libs.kotlinx.coroutines.reactor)
-
-        // kotlinx-serialization
-        implementation(libs.kotlinx.serialization.json)
-        implementation(libs.converter.kotlinx.serialization)
 
         implementation(libs.gson)
         implementation(libs.converter.gson)
         implementation(libs.retrofit2.reactor.adapter)
         implementation(libs.retrofit)
 
-        implementation(libs.androidx.material.icons.core)
-
-        // Navigator
-        implementation(libs.voyager.navigator)
-        // Screen Model
-        implementation(libs.voyager.screenmodel)
-        // Transitions
-        implementation(libs.voyager.transitions)
-
         implementation(libs.fingerprint.android)
-
-        implementation(libs.androidx.lifecycle.runtime.ktx)
-
-        implementation(libs.automerge)
 
         implementation("com.github.skydoves:retrofit-adapters-result:1.0.9")
     }

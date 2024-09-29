@@ -1,9 +1,12 @@
 package robphi.server.ktor.plugins
 
-import io.ktor.server.application.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
-import io.ktor.server.sse.*
+import io.ktor.server.application.Application
+import io.ktor.server.application.call
+import io.ktor.server.application.log
+import io.ktor.server.response.ApplicationResponse
+import io.ktor.server.response.respondText
+import io.ktor.server.routing.get
+import io.ktor.server.routing.routing
 import org.koin.ktor.ext.inject
 import robphi.server.ktor.api.groupRoutes
 import robphi.server.ktor.api.memberRoutes
@@ -37,35 +40,3 @@ fun Application.configureRouting() {
         groupRoutes()
     }
 }
-
-
-
-fun ServerSSESession.emitFlow() {
-
-}
-
-/*
-val priorityAsText = call.parameters["priority"]
-            if (priorityAsText == null) {
-                call.respond(HttpStatusCode.BadRequest)
-                return@get
-            }
-
-            try {
-                val priority = Priority.valueOf(priorityAsText)
-                val tasks = TaskRepository.tasksByPriority(priority)
-
-                if (tasks.isEmpty()) {
-                    call.respond(HttpStatusCode.NotFound)
-                    return@get
-                }
-
-                call.respondText(
-                    contentType = ContentType.parse("text/html"),
-                    text = tasks.tasksAsTable()
-                )
-            } catch(ex: IllegalArgumentException) {
-                call.respond(HttpStatusCode.BadRequest)
-        }
-    }
- */
